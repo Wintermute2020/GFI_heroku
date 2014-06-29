@@ -28,11 +28,10 @@
 
   <% @requests.each do |request| %>
 
-  <% if request.user_id != current_user.id %>
       <tr>
         <td>
           <div style="margin-left: 5px" class="round-image-50">
-            <%= image_tag(current_user.logo.url(:small) ) %>
+            <%= image_tag(request.user.logo.url(:small) ) %>
           </div>
           <%= link_to request.user.name %></td>
 
@@ -49,7 +48,6 @@
                       :class => 'button button-mini button-danger' %>
         </td>
       </tr>
-  <% end %>
       <% end %>
   </tbody>
 </table>

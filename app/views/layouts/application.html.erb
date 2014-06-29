@@ -29,7 +29,9 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+
         <li class="dropdown">
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Favors... <b class="caret"></b></a>
           <ul class="btn-group select select-block mbl">
             <li><%= link_to "View Offers", offers_path %></li>
@@ -38,6 +40,7 @@
             <li><%= link_to "Add Request", new_request_path %></li>
           </ul>
         </li>
+
         <% if user_signed_in? %>
 
       <li><%= link_to "Inbox", conversations_path %>
@@ -130,7 +133,6 @@
 </div>
 
 <footer>
-  <p class="pull-right">©2014 Lunar FX</p>
 </footer>
 
 
