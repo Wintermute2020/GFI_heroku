@@ -1,16 +1,23 @@
 <div class="col-xs-6">
 
-  <div class="container well">
+  <div class="container well    ">
     <div class="row">
+
       <div class="col-md-5">
         <%= simple_form_for Request.new, :html => {:multipart => true} do |f| %>
 
             <div class="control-group">
               <%= f.label :category, :class => 'control-label' %>
               <div class="controls">
-                <%= f.select(:category, options_for_select([['General'], ['Carpooling'], ['Delivery'], ['Labor'], ['Social'], ['Event'], ['Tutoring'], ['Studying']]), {}, {class: "form-control", :style => "width:191px;"}) %>
+                <%= f.select(:category, options_for_select(
+                        [['General'], ['Carpooling'], ['Delivery'],
+                         ['Labor'], ['Social'], ['Event'], ['Tutoring'],
+                         ['Studying']]), {},
+                             {class: "form-control", :style => "width:191px;"}) %>
               </div>
             </div>
+
+
 
             <div class="form-inline">
               <div class="form-group">
@@ -24,6 +31,18 @@
                 <%= f.text_field :state, :class => 'text_field', :style => "width:191px;" %>
               </div>
 
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <label class="checkbox" for="checkbox1">
+                  <span class="icons">
+                    <span class="first-icon fui-checkbox-unchecked"></span>
+                    <span class="second-icon fui-checkbox-checked"></span></span>
+                  <%= f.check_box :category %>
+                  Use my own address?
+                </label>
+              </div>
             </div>
 
             <div class="control-group">
@@ -62,10 +81,12 @@
 
 
 
-
         <% end %>
       </div>
+
+
     </div>
+
   </div>
 </div>
 
