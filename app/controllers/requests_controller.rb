@@ -9,7 +9,8 @@ class RequestsController < ApplicationController
 	  if params[:search]
 		  #@requests = Request.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
 		  @requests = Request.paginate(:page => params[:page], :per_page => 5)
-
+	  else if params[:category]
+		  @offers = Offer.all.where(params[:category])
 	  else
 		  @requests = Request.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 
@@ -89,7 +90,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       @request = Request.find(params[:id])
@@ -97,6 +97,7 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-	    params.require(:request).permit(:title, :description, gallery_attributes: [:id, :name, :description]).merge(user_id: current_user.id)
+	    params.require(:request).permit(:title, :description, :category, gallery_attributes: [:id, :name, :description]).merge(user_id: current_user.id)
     end
+end
 end

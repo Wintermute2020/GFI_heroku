@@ -3,14 +3,30 @@
   <div class="container well">
     <div class="row">
       <div class="col-md-5">
-        <%= simple_form_for Request.new, :html => { :multipart => true } do |f| %>
+        <%= simple_form_for Request.new, :html => {:multipart => true} do |f| %>
 
             <div class="control-group">
               <%= f.label :category, :class => 'control-label' %>
               <div class="controls">
-                <%= f.select(:category, options_for_select([['Other', 1], ['Carpooling', 2], ['Delivery', 3], ['Labor', 4], ['Social', 5], ['Event', 6], ['Tutoring', 7], ['Studying', 8]]), {}, {class: "form-control", :style => "width:200px;"}) %>
+                <%= f.select(:category, options_for_select([['General'], ['Carpooling'], ['Delivery'], ['Labor'], ['Social'], ['Event'], ['Tutoring'], ['Studying']]), {}, {class: "form-control", :style => "width:200px;"}) %>
               </div>
             </div>
+
+            <div class="form-inline">
+              <div class="form-group">
+                <%= f.label "City", :class => 'control-label' %>
+                <br>
+                <%= f.text_field :title, :class => 'text_field' %>
+              </div>
+              <div class="form-group">
+                <%= f.label "State", :class => 'control-label' %>
+                <br>
+
+                <%= f.text_field :title, :class => 'text_field' %>
+              </div>
+
+            </div>
+
             <div class="control-group">
               <%= f.label :title, :class => 'control-label' %>
               <div class="controls">
@@ -25,10 +41,19 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label "What can I give? (optional)", :class => 'control-label' %>
+              <div class="span6">
+                <%= f.text_area :description, :style => "width:510px; height: 100  " %>
+              </div>
+            </div>
+
+
             <div class="controls">
-              <%= f.submit nil, :class => 'btn' %>
+              <%= f.submit nil, :class => 'btn btn-small mhm btn-info' %>
               <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                          requests_path, :class => 'btn' %>          </div>
+                          requests_path, :class => 'btn btn-small mhm btn-warning' %>
+            </div>
         <% end %>
       </div>
     </div>
