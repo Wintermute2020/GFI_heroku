@@ -8,7 +8,7 @@
             <div class="control-group">
               <%= f.label :category, :class => 'control-label' %>
               <div class="controls">
-                <%= f.select(:category, options_for_select([['General'], ['Carpooling'], ['Delivery'], ['Labor'], ['Social'], ['Event'], ['Tutoring'], ['Studying']]), {}, {class: "form-control", :style => "width:200px;"}) %>
+                <%= f.select(:category, options_for_select([['General'], ['Carpooling'], ['Delivery'], ['Labor'], ['Social'], ['Event'], ['Tutoring'], ['Studying']]), {}, {class: "form-control", :style => "width:191px;"}) %>
               </div>
             </div>
 
@@ -16,13 +16,12 @@
               <div class="form-group">
                 <%= f.label "City", :class => 'control-label' %>
                 <br>
-                <%= f.text_field :title, :class => 'text_field' %>
+                <%= f.text_field :city, :class => 'text_field', :style => "width:191px;" %>
               </div>
               <div class="form-group">
                 <%= f.label "State", :class => 'control-label' %>
                 <br>
-
-                <%= f.text_field :title, :class => 'text_field' %>
+                <%= f.text_field :state, :class => 'text_field', :style => "width:191px;" %>
               </div>
 
             </div>
@@ -44,7 +43,7 @@
             <div class="control-group">
               <%= f.label "What can I give? (optional)", :class => 'control-label' %>
               <div class="span6">
-                <%= f.text_area :description, :style => "width:510px; height: 100  " %>
+                <%= f.text_area :give, :style => "width:510px; height: 100  " %>
               </div>
             </div>
 
@@ -54,6 +53,16 @@
               <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                           requests_path, :class => 'btn btn-small mhm btn-warning' %>
             </div>
+
+
+
+
+
+
+
+
+
+
         <% end %>
       </div>
     </div>
