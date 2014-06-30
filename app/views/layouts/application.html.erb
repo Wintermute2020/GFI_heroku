@@ -105,20 +105,18 @@
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
     <li class="nav-header">Categories</li>
-    <li><%= link_to "Edit profile", requests_path %></li>
-    <li><%= link_to "Carpooling", offers_path %></li>
-    <li><%= link_to "Tutoring", requests_path %></li>
-    <li><%= link_to "Art", conversations_path %></li>
-    <li><%= link_to "Career", conversations_path %></li>
-    <li><%= link_to "Delivery", conversations_path %></li>
-    <li><%= link_to "Learning", conversations_path %></li>
-    <li><%= link_to "Labor", requests_path %></li>
-    <li><%= link_to "Carpooling", offers_path %></li>
-    <li><%= link_to "Tutoring", requests_path %></li>
-    <li><%= link_to "Art", conversations_path %></li>
-    <li><%= link_to "Career", conversations_path %></li>
-    <li><%= link_to "Delivery", conversations_path %></li>
-    <li><%= link_to "Learning", conversations_path %></li>
+    <li><%= link_to "Carpooling", offers_path( :category => {:title => "carpool" }) %></li>
+    <li> <%= link_to "Tutoring", offers_path( :search => "tutor") %></li>
+    <li><%= link_to "Studying", offers_path( :search => "study") %></li>
+    <li><%= link_to "Career", offers_path( :search => "career") %></li>
+    <li><%= link_to "Art", offers_path( :search => "art") %></li>
+    <li><%= link_to "Culture", offers_path( :search => "culture") %></li>
+    <li><%= link_to "Learning", offers_path( :search => "learning") %></li>
+    <li><%= link_to "Events", offers_path( :search => "events") %></li>
+    <li><%= link_to "Delivery", offers_path( :search => "delivery") %></li>
+    <li><%= link_to "Labor", offers_path( :search => "labor") %></li>
+    <li><%= link_to "Social", offers_path( :search => "social") %></li>
+
 
 
   </ul>
@@ -134,6 +132,9 @@
 
 <footer>
 </footer>
+
+
+<%= link_to "", offers_path( :search => "wall") %>
 
 
 </body>

@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user.build_profile
-    #authorize @user
+	  @requests = @user.requests.paginate(:page => params[:page], :per_page => 5)
+    @offers = @user.offers.paginate(:page => params[:page], :per_page => 5)
+
+	  #authorize @user
   end
 
   def update

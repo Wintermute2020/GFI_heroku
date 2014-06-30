@@ -8,8 +8,10 @@ class OffersController < ApplicationController
 
     if params[:search]
 	    @offers = Offer.search(params[:search]).order("created_at DESC")
-    else
-	    @offers = Offer.all.order('created_at DESC')
+    else if params[:category]
+	    @offers = Offer.all.where(params[:category])
+	   else
+		  @offers = Offer.all.order('created_at DESC')
     end
   end
 
@@ -73,7 +75,6 @@ class OffersController < ApplicationController
     end
   end
 
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
@@ -84,4 +85,5 @@ class OffersController < ApplicationController
       params.require(:offer).permit(:title, :description, :username, :address, :latitude, :longitude).merge(user_id: current_user.id)
 
     end
+end
 end

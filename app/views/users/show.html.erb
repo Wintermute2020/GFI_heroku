@@ -1,7 +1,107 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
+<h3><%= @user.name %></h3>
 <p>Email: <%= @user.email if @user.email %></p>
 
-<%= render partial: 'avatars/form',
-           object: @user,
-           as: :avatarable %>
+<div class="form-group">
+
+
+
+<div class="col-xs-3 well">
+  <%= render partial: 'avatars/form',
+             object: @user,
+             as: :avatarable %>
+</div>
+</div>
+<div class="col-xs-6"></div>
+
+
+
+<%- model_class = Profile -%>
+<div class="page-header">
+  <div id="">
+    <img src="http://cs-production.s3.amazonaws.com/challenges/1368/rtaImage.jpeg" alt="Smiley face" height="150" width="150">
+  </div>
+  <br>
+
+
+  <div id="worked">
+
+        <br>
+  </div>
+  <div class="contain">
+    <h5>My Offers - <%= @offers.count %></h5>
+
+    <!--<h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>-->
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @offers.each do |offer| %>
+          <tr>
+
+
+            <td><%= link_to offer.title, offer_path(offer) %></td>
+            <td><%= offer.user.name %></td>
+            <td><%= offer.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_offer_path(offer), :class => 'button' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          offer_path(offer),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'button' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+                new_offer_path,
+                :class => 'button' %>
+
+  </div>
+
+
+  <div class="contain">
+    <h5>My Requests - <%= @requests.count %></h5>
+    <!--<h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>-->
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @requests.each do |request| %>
+          <tr>
+
+            <td><%= link_to request.title, request_path(request) %></td>
+            <td><%= request.user.name %></td>
+            <td><%= request.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_request_path(request), :class => 'button' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          request_path(request),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'button' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+                new_request_path,
+                :class => 'button' %>
+
+  </div>
+
+</div>
