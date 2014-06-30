@@ -4,7 +4,7 @@ Reply to post:
 <h5>To: <%= @user.name %></h5>
 <%= form_tag({controller: "messages", action: "create"}, method: :post) do %>
     <%= hidden_field_tag :subject, @offer.title %>
-    <%= text_area_tag :body, "", :size=>"3000px*390px" %>
+    <%= text_area_tag :body, "", :style => "width:510px; height: 300px  " %>
 
     <%= hidden_field_tag(:user, "#{@user.id}") %>
     <br>

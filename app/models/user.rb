@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
 
 	has_attached_file :avatar,
+			              :default_url => ":rails_root/public/images/missing.png",
 	                  :path => ":rails_root/public/images/:id/:filename",
 	                  :url  => "/images/:id/:filename",
 	                  :styles => { :small => "1000x1000>" }

@@ -19,7 +19,11 @@
         <td> <%= m.body %> </td>
 
         <td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply", :class => 'btn' %></td>
+TODO: render partial of ^^^
 
+        <div id="replypartial">
+          <%= render partial: {:controller => "messages", :action => "reply"}, locals: { items: @items} %>
+        </div>
       </tr>
   <% end %>
 
