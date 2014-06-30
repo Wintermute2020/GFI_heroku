@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629203206) do
+ActiveRecord::Schema.define(version: 20140630042903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20140629203206) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
+    t.string   "category"
   end
 
   create_table "pictures", force: true do |t|
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(version: 20140629203206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "category"
   end
 
   add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree

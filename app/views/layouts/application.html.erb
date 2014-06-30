@@ -35,9 +35,17 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Favors... <b class="caret"></b></a>
           <ul class="btn-group select select-block mbl">
             <li><%= link_to "View Offers", offers_path %></li>
-            <li><%= link_to "Add Offer", new_offer_path %></li>
             <li><%= link_to "View Requests", requests_path %></li>
-            <li><%= link_to "Add Request", new_request_path %></li>
+            <% if user_signed_in? %>
+                <li><%= link_to "Add Offer", new_offer_path %></li>
+            <% else %>
+                <li><%= link_to "Add Offer", new_user_session_path %></li>
+            <% end %>
+            <% if user_signed_in? %>
+                <li><%= link_to "Add Request", new_request_path %></li>
+            <% else %>
+                <li><%= link_to "Add Request", new_user_session_path %></li>
+            <% end  %>
           </ul>
         </li>
 
@@ -105,17 +113,17 @@
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
     <li class="nav-header">Categories</li>
-    <li><%= link_to "Carpooling", offers_path( :category => {:title => "carpool" }) %></li>
-    <li> <%= link_to "Tutoring", offers_path( :search => "tutor") %></li>
-    <li><%= link_to "Studying", offers_path( :search => "study") %></li>
-    <li><%= link_to "Career", offers_path( :search => "career") %></li>
-    <li><%= link_to "Art", offers_path( :search => "art") %></li>
-    <li><%= link_to "Culture", offers_path( :search => "culture") %></li>
-    <li><%= link_to "Learning", offers_path( :search => "learning") %></li>
-    <li><%= link_to "Events", offers_path( :search => "events") %></li>
-    <li><%= link_to "Delivery", offers_path( :search => "delivery") %></li>
-    <li><%= link_to "Labor", offers_path( :search => "labor") %></li>
-    <li><%= link_to "Social", offers_path( :search => "social") %></li>
+    <li><%= link_to "Carpooling", offers_path( :category => {:category => "Carpooling" }) %></li>
+    <li> <%= link_to "Tutoring", offers_path( :category => {:category => "Tutoring" })%></li>
+    <li><%= link_to "Studying", offers_path( :category => {:category => "Studying" }) %></li>
+    <li><%= link_to "Career", offers_path( :category => {:category => "Career" }) %></li>
+    <li><%= link_to "Art", offers_path( :category => {:category => "Art" }) %></li>
+    <li><%= link_to "Culture", offers_path( :category => {:category => "Culture" }) %></li>
+    <li><%= link_to "Learning", offers_path( :category => {:category => "Learning" }) %></li>
+    <li><%= link_to "Events", offers_path( :category => {:category => "Events" }) %></li>
+    <li><%= link_to "Delivery", offers_path( :category => {:category => "Delivery" }) %></li>
+    <li><%= link_to "Labor", offers_path( :category => {:category => "Labor" }) %></li>
+    <li><%= link_to "Social", offers_path( :category => {:category => "Social" }) %></li>
 
 
 

@@ -1,44 +1,37 @@
+<div class="col-xs-6">
 
-<%= form_for @offer, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="container well">
+    <div class="row">
+      <div class="col-md-5">
+        <%= simple_form_for Offer.new, :html => { :multipart => true } do |f| %>
 
-    <div class="control-group">
-      <%= f.label :title, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :title, :class => 'form-control' %>
+            <div class="control-group">
+              <%= f.label :category, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.select(:category, options_for_select([['Other', 1], ['Carpooling', 2], ['Delivery', 3], ['Labor', 4], ['Social', 5], ['Event', 6], ['Tutoring', 7], ['Studying', 8]]), {}, {class: "form-control", :style => "width:200px;"}) %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :title, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :title, :class => 'input-large text_field', :style => "width:510px;" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.label :description, :class => 'control-label' %>
+              <div class="span6">
+                <%= f.text_area :description, :style => "width:510px; height: 300px  " %>
+              </div>
+            </div>
+
+          <div class="controls">
+            <%= f.submit nil, :class => 'btn' %>
+            <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                        offers_path, :class => 'btn' %>          </div>
+        <% end %>
       </div>
     </div>
-
-      <textarea>
-
-
-      </textarea>
-
-    <div class="control-group">
-      <%= f.label :longitude, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :longitude, :class => 'text_field' %>
-      </div>
-
-
-      <div class="control-group">
-        <%= f.label :latitude, :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :latitude, :class => 'text_field' %>
-        </div>
-
-
-
+  </div>
     </div>
-    <div class="form-actions">
 
-
-      <%= button_tag(type: 'f.submit', class: "btn btn-primary") do %>
-          <i class="glyphicon glyphicon-ok-sign"></i> Create Offer
-      <% end %>
-
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  requests_path, :class => 'button' %>
-    </div>
-        </div>
-<% end %>
-</div>

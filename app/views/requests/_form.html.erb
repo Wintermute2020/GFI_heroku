@@ -1,49 +1,37 @@
-<%= bootstrap_form_for @request, :html => { :multipart => true } do |f| %>
+<div class="col-xs-6">
 
+  <div class="container well">
+    <div class="row">
+      <div class="col-md-5">
+        <%= simple_form_for Request.new, :html => { :multipart => true } do |f| %>
 
+            <div class="control-group">
+              <%= f.label :category, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.select(:category, options_for_select([['Other', 1], ['Carpooling', 2], ['Delivery', 3], ['Labor', 4], ['Social', 5], ['Event', 6], ['Tutoring', 7], ['Studying', 8]]), {}, {class: "form-control", :style => "width:200px;"}) %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :title, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :title, :class => 'input-large text_field', :style => "width:510px;" %>
+              </div>
+            </div>
 
-  <div class="control-group">
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field', :style => "" %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_field' %>
-    </div>
-  </div>
+            <div class="control-group">
+              <%= f.label :description, :class => 'control-label' %>
+              <div class="span6">
+                <%= f.text_area :description, :style => "width:510px; height: 300px  " %>
+              </div>
+            </div>
 
-
-    <%= f.fields_for @request.gallery do |ff| %>
-
-        <div class="control-group">
-      <div class="controls">
-
-        <%= ff.text_field :name, :class => 'text_field' %>
+            <div class="controls">
+              <%= f.submit nil, :class => 'btn' %>
+              <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                          requests_path, :class => 'btn' %>          </div>
+        <% end %>
       </div>
     </div>
-    <div class="control-group">
-      <div class="controls">
-        <%= ff.text_field :description, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= ff.label :pictures, :class => 'control-label' %>
-      <div class="controls">
-        <!-- The magic is coming ...look at my eyes....shazammmm -->
-        <%= f.file_field :data, :id => 'image_upload'  %>
-
-        <%= file_field_tag "images[]", type: :file, multiple: true %>
-      </div>
-    </div>
-
-    <% end %>
-
-
-    <div class="form-actions">
-    <%= f.submit nil, :class => 'button' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                requests_path, :class => 'button' %>
   </div>
-<% end %>
+</div>
+

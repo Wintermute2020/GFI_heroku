@@ -82,7 +82,7 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:title, :description, :username, :address, :latitude, :longitude).merge(user_id: current_user.id)
+      params.require(:offer).permit(:title, :description, :username, :address, :latitude, :longitude, :category).merge(user_id: current_user.id)
 
     end
 end
