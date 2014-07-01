@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
 		  #@requests = Request.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
 		  @requests = Request.paginate(:page => params[:page], :per_page => 5)
 	  else if params[:category]
-		  @offers = Offer.all.where(params[:category])
+		  @requests = Request.all.where(params[:category])
 	  else
 		  @requests = Request.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 
@@ -99,5 +99,6 @@ class RequestsController < ApplicationController
     def request_params
 	    params.require(:request).permit(:title, :description, :category, :give, gallery_attributes: [:id, :name, :description]).merge(user_id: current_user.id)
     end
-end
-end
+
+  end
+	end

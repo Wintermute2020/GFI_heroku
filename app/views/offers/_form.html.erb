@@ -4,7 +4,7 @@
     <div class="row">
 
       <div class="col-md-5">
-        <%= simple_form_for Offer.new, :html => {:multipart => true} do |f| %>
+        <%= simple_form_for @offer, :html => {:multipart => true} do |f| %>
 
             <div class="control-group">
               <%= f.label :category, :class => 'control-label' %>
@@ -65,31 +65,6 @@
               </div>
             </div>
 
-
-            <%= f.fields_for @request.gallery do |ff| %>
-
-                <div class="control-group">
-                  <%= ff.label :name, :class => 'control-label' %>
-                  <div class="controls">
-                    <%= ff.text_field :name, :class => 'text_field' %>
-                  </div>
-                </div>
-                <div class="control-group">
-                  <%= ff.label :description, :class => 'control-label' %>
-                  <div class="controls">
-                    <%= ff.text_field :description, :class => 'text_field' %>
-                  </div>
-                </div>
-
-                <div class="control-group">
-                  <%= ff.label :pictures, :class => 'control-label' %>
-                  <div class="controls">
-                    <!-- The magic is coming ...look at my eyes....shazammmm -->
-                    <%= file_field_tag "images[]", type: :file, multiple: true %>
-                  </div>
-                </div>
-
-            <% end %>
 
 
 
