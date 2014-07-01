@@ -5,10 +5,19 @@
   <tr>
 
         <td>
-            <div class="navlogo">
+          <div style="margin-left: 5px" class="round-image-50">
+            <%= image_tag(conversation.originator.logo.url(:small) ) %>
+          </div>
 
-            </div>
-        <td>  <%= conversation.originator.email %></td>
+    <td>  <%= conversation.originator.email %> <div class="demo-popovers">
+      <div class="popover right">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Smooth Title</h3>
+        <div class="popover-content">
+          <p>And here's some amazing content. It's very engaging. <br>Right?</p>
+        </div>
+      </div>
+    </div></td>
 
         <td><%= 'unread' if conversation.is_unread?(current_user) %></td>
 

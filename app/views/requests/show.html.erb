@@ -3,8 +3,8 @@
   <h4><%= @request.title %></h4>
 </div>
 
-<div class="navlogo">
-<img src="profilepic.png">
+<div style="margin-left: 5px" class="round-image-50">
+  <%= image_tag(@request.user.logo.url(:small) ) %>
 </div>
 <%= link_to @request.user.name %>
 
@@ -46,9 +46,9 @@
               new_message_path(:request => @request.id), :class => 'btn'  %>
   <% end %>
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              requests_path, :class => 'btn'  %>
+              requests_path, :class => 'btn btn-info'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_request_path(@request), :class => 'btn' %>
+              edit_request_path(@request), :class => 'btn btn-inverse' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               request_path(@request),
               :method => 'delete',
@@ -68,6 +68,7 @@
     <i class="fui-twitter"></i>
     Tweet
   </a>
+
 
 
 </div>
