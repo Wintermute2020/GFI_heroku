@@ -23,7 +23,8 @@
 
       </button>
 
-      <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+      <%=  %>
+      <a class="navbar-brand" rel="home" href="localhost:3000" title="Buy Sell Rent Everyting">
         <img style="max-width:130px; margin-top: -7px;"
              src="/images/gofavorit-green.png">
       </a>
@@ -120,7 +121,7 @@
     </ul>
   </div>
 
-  <!--<h4>Toronto, ON</h4>-->
+  <h4>Toronto, ON</h4>
 
   <p class="alert alert-success">
     <%= notice %></p>
@@ -139,13 +140,13 @@
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
     <li class="nav-header">Find Favors</li>
-    <label class="checkbox primary checked" for="checkbox5">
-      <span class="icons"><span class="first-icon fui-checkbox-unchecked"></span><span class="second-icon fui-checkbox-checked"></span></span><input type="checkbox" value="" id="checkbox5" data-toggle="checkbox" checked="checked">
-      Requests
+    <label class="radio">
+      <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
+        Requests
     </label>
-    <label class="checkbox primary checked" for="checkbox5">
-      <span class="icons"><span class="first-icon fui-checkbox-unchecked"></span><span class="second-icon fui-checkbox-checked"></span></span><input type="checkbox" value="" id="checkbox5" data-toggle="checkbox" checked="checked">
-      Offers
+    <label class="radio">
+      <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
+        Offers
     </label>
     <li><%= link_to "Carpooling", offers_path(:category => {:category => "Carpooling"}) %></li>
     <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"}) %></li>
@@ -172,10 +173,10 @@
 </div>
 
 <footer>
+
 </footer>
 
 
-<%= link_to "", offers_path(:search => "wall") %>
 
 
 </body>

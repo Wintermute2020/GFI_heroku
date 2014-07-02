@@ -18,12 +18,10 @@
 
         <td> <%= m.body %> </td>
 
-        <td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply", :class => 'btn' %></td>
-TODO: render partial of ^^^
+        <td></td>
+<!--TODO: render partial of ^^^-->
 
-        <div id="replypartial">
-          <%= render partial: {:controller => "messages", :action => "reply"} %>
-        </div>
+
       </tr>
   <% end %>
 
@@ -31,3 +29,14 @@ TODO: render partial of ^^^
 </table>
 <%= link_to t('.back', :default => t("helpers.links.back")),
             conversations_path, :class => 'btn'  %>
+<%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply", :class => 'btn  btn-info' %>
+
+
+<!--failed ajax attempt. can't even render partials from here. must figure that out first.-->
+<%= link_to "new comment", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
+            :remote => true, :id => 'new_comment_link', :title => "Reply", :class => 'btn  btn-info'  %>
+
+
+<div id="replypartial">
+  <!--< % render 'conversations/conver' %>-->
+</div>

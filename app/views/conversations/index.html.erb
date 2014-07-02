@@ -4,20 +4,11 @@
   <% @conversations.each do |conversation| %>
   <tr>
 
-        <td>
-          <div style="margin-left: 5px" class="round-image-50">
-            <%= image_tag(conversation.originator.logo.url(:small) ) %>
-          </div>
-
-    <td>  <%= conversation.originator.email %> <div class="demo-popovers">
-      <div class="popover right">
-        <div class="arrow"></div>
-        <h3 class="popover-title">Smooth Title</h3>
-        <div class="popover-content">
-          <p>And here's some amazing content. It's very engaging. <br>Right?</p>
-        </div>
+    <td>
+      <div style="margin-left: 5px" class="round-image-50">
+        <%= image_tag(conversation.originator.logo.url(:small) ) %>
       </div>
-    </div></td>
+      <%= link_to conversation.originator.email %></td>
 
         <td><%= 'unread' if conversation.is_unread?(current_user) %></td>
 
@@ -30,7 +21,6 @@
           <td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply" %></td>
 
           <td> <%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title => "Move to Trash", :method => 'post' %></td>
-        <td><%= check_box_tag '', conversation.id, false, class: 'delete_multiple_checkbox', name: "conversations[]" %>
 
         </tr>
           </tbody>

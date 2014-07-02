@@ -2,18 +2,29 @@
 
 
 <div class="page-header">
-  <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-  <%= form_tag requests_path, :method => "get" do %>
+  <%= form_tag requests_path, :method => "get" do |f| %>
       <div class="span3">
 
       </div>
       <div class="span2 search-query search-query-rounded" style="display: inline-block">
 
-        <%= text_field_tag :search, params[:search], placeholder: "Search Offers",
+      <div style="display: inline-block">
+        <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
+        <%= text_field_tag :search, params[:search], placeholder: "Search Requests",
                            :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;' %>
         <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
             <span class="glyphicon glyphicon-search"> </span> Search
-        <% end %></div>
+       </div>
+      </div>
+
+        <%= select_tag(:category, options_for_select(
+                [['General'], ['Carpooling'], ['Delivery'],
+                 ['Labor'], ['Social'], ['Event'], ['Tutoring'],
+                 ['Studying']]),
+                       {class: "form-control", :style => "width:191px;"}) %>
+        <% end %>
+
   <% end %>
 
 </div>

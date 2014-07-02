@@ -1,1 +1,2 @@
-$('#replypartial div.replypartial').append("<%= j render(:partial => 'messages/reply') %>");
+$("<%= escape_javascript render(file: 'conversations/index.html.erb') %>").insertAfter('#replypartial');
+$('#new_comment_link').hide();
