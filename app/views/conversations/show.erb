@@ -29,14 +29,14 @@
 </table>
 <%= link_to t('.back', :default => t("helpers.links.back")),
             conversations_path, :class => 'btn'  %>
-<%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply", :class => 'btn  btn-info' %>
 
 
-<!--failed ajax attempt. can't even render partials from here. must figure that out first.-->
-<%= link_to "new comment", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
-            :remote => true, :id => 'new_comment_link', :title => "Reply", :class => 'btn  btn-info'  %>
+<%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
+            :remote => true, :id => 'new_reply_link', :title => "Reply", :class => 'btn  btn-info' %>
 
 
+<br>
+<br>
+<br>
 <div id="replypartial">
-  <!--< % render 'conversations/conver' %>-->
 </div>

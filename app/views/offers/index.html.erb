@@ -62,6 +62,14 @@
 <% end %>
 
 
+
+<%= link_to "new offer", new_offer_path(@offer, :format => :js),
+            :remote => true, :id => 'new_comment_link' %>
+
+
+<div id="comments">
+</div>
+
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>

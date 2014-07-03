@@ -21,18 +21,24 @@
 <%- model_class = Profile -%>
 <div class="page-header">
   <div id="">
-    <img src="http://cs-production.s3.amazonaws.com/challenges/1368/rtaImage.jpeg" alt="Smiley face" height="150" width="150">
   </div>
   <br>
 
 
   <div id="worked">
 
+    <br>
+    <br>
+    <br>
         <br>
     <br>
     <br>
     <br>
-
+    <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>
   </div>
   <div class="contain">
     <h5>My Offers - <%= @offers.count %></h5>
@@ -52,25 +58,28 @@
 
 
             <td><%= link_to offer.title, offer_path(offer) %></td>
-            <td><%= offer.user.name %></td>
             <td><%= offer.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_offer_path(offer), :class => 'button' %>
+                          edit_offer_path(offer), :class => 'btn btn-info' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                           offer_path(offer),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'button' %>
+                          :class => 'btn' %>
+
             </td>
           </tr>
+
       <% end %>
+      <%= link_to t('.new', :default => t("helpers.links.new")),
+                  new_offer_path,
+                  :class => 'btn-success btn' %>
+
       </tbody>
     </table>
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-                new_offer_path,
-                :class => 'button' %>
 
+  </div>
   </div>
 
 
@@ -80,35 +89,35 @@
 
     <table class="table table-striped">
       <thead>
+      <%= link_to t('.new', :default => t("helpers.links.new")),
+                  new_request_path,
+                  :class => 'btn-success btn' %>
+
       <tr>
         <th><%= model_class.human_attribute_name(:title) %></th>
         <th><%= model_class.human_attribute_name(:name) %></th>
       </tr>
+
       </thead>
       <tbody>
       <% @requests.each do |request| %>
           <tr>
 
             <td><%= link_to request.title, request_path(request) %></td>
-            <td><%= request.user.name %></td>
             <td><%= request.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_request_path(request), :class => 'button' %>
+                          edit_request_path(request), :class => 'btn btn-info' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                           request_path(request),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'button' %>
+                          :class => 'btn' %>
             </td>
           </tr>
       <% end %>
       </tbody>
     </table>
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-                new_request_path,
-                :class => 'button' %>
 
   </div>
 
-</div>

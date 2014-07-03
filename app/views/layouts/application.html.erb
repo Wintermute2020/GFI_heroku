@@ -4,11 +4,13 @@
   <title>GoFavorIt</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery', 'application' %>
+
   <%= csrf_meta_tags %>
+
   <link rel="stylesheet" href="http://i.icomoon.io/public/temp/4d3f767796/UntitledProject2/style.css">
 </head>
 <body>
-
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -23,9 +25,8 @@
 
       </button>
 
-      <%=  %>
       <a class="navbar-brand" rel="home" href="localhost:3000" title="Buy Sell Rent Everyting">
-        <img style="max-width:130px; margin-top: -7px;"
+        <img style="max-width:140px; margin-top: -7px; margin-left: -15px;"
              src="/images/gofavorit-green.png">
       </a>
 
@@ -142,12 +143,44 @@
     <li class="nav-header">Find Favors</li>
     <label class="radio">
       <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
-        Requests
+      <%= radio_button_tag('link_selector', "request_link", :class => 'link_selector') %>
+
     </label>
+    <script>
+
+        jQuery(document).ready(function() {
+            //Hide all links
+            $(".link").hide();
+
+            //Add a listener to the radio buttons
+            $(".link_selector_request_link").change(function () {
+                var value = $(this).val();
+                $(".link").hide();      //Hide all links
+                $("." + value).show();  //Show the appropriate links
+            });
+
+        });
+
+    </script>
     <label class="radio">
+      <%= %>
+      <%= radio_button_tag('link_selector', "offer_link", :class => 'link_selector') %>
+
       <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
         Offers
     </label>
+    <%= link_to "Text 1", requests_path, :class => 'link offer_link' %>
+    <%= link_to "Text 1", offers_path, :class => 'link request_link' %>
+    <%= link_to "Text 3", requests_path, :class => 'link offer_link' %>
+    <%= link_to "Text 3", offers_path, :class => 'link request_link' %>
+    <%= link_to "Text 4", requests_path, :class => 'link offer_link' %>
+    <%= link_to "Text 4", offers_path, :class => 'link request_link' %>
+
+
+
+
+
+
     <li><%= link_to "Carpooling", offers_path(:category => {:category => "Carpooling"}) %></li>
     <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"}) %></li>
     <li><%= link_to "Studying", offers_path(:category => {:category => "Studying"}) %></li>
@@ -172,12 +205,11 @@
 
 </div>
 
-<footer>
-
-</footer>
-
-
-
+<!-- Codes by HTML.am -->
+<div style="background-image:url(gofavorit-background.png)">
+  This text appears in front of the background image.
+</div>
 
 </body>
+
 </html>

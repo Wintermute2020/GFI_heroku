@@ -8,7 +8,7 @@
       <div style="margin-left: 5px" class="round-image-50">
         <%= image_tag(conversation.originator.logo.url(:small) ) %>
       </div>
-      <%= link_to conversation.originator.email %></td>
+      <%= link_to conversation.originator.name, user_path(conversation.originator) %></td>
 
         <td><%= 'unread' if conversation.is_unread?(current_user) %></td>
 
