@@ -4,13 +4,14 @@
   <% @conversationssent.each do |conversation| %>
       <tr>
 
-            <td>
-              <div class="navlogo">
 
-              </div>
-            <td>  <%= conversation.originator.email %></td>
+        <td>
+          <div style="margin-left: 5px" class="round-image-50">
+            <%= image_tag(conversation.originator.logo.url(:small) ) %>
+          </div>
+          <%= link_to conversation.originator.name, user_path(conversation.originator) %></td>
 
-            <td><%= 'unread' if conversation.is_unread?(current_user) %></td>
+        <td><%= 'unread' if conversation.is_unread?(current_user) %></td>
 
 
             <td><%= link_to conversation.subject, conversation_path(conversation) %></td>
@@ -21,7 +22,6 @@
             <td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply" %></td>
 
             <td> <%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title => "Move to Trash", :method => 'post' %></td>
-            <td><%= check_box_tag '', conversation.id, false, class: 'delete_multiple_checkbox', name: "conversations[]" %>
 
             </tr>
             </tbody>

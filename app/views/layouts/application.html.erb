@@ -34,7 +34,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Favors... <b class="caret"></b></a>
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-gift"></i> Favors<b class="caret"></b></a>
           <ul class="btn-group select select-block mbl">
 
             <li><%= link_to "View Offers", offers_path %></li>
@@ -54,7 +55,9 @@
 
         <% if user_signed_in? %>
 
-            <li><%= link_to "Inbox", conversations_path %>
+            <li><%= link_to conversations_path, :method => :get  do %>
+                  Inbox <i class="glyphicon glyphicon-envelope"></i>
+              <% end %>
 
               <% if current_user.mailbox.inbox({:read => false}).count > 0 %>
           <span class="navbar-new">
@@ -63,7 +66,10 @@
                   </li>
               <% end %>
               <% @user = current_user %>
-              <li><%= link_to "Profile", user_path(@user.id) %></li>
+              <li><li><%= link_to user_path(@user.id), :method => :get  do %>
+                  Profile <i class="glyphicon glyphicon-home"></i>
+              <% end %>
+            </li>
         <% end %>
         <li><a href="#">Help</a></li>
 
@@ -140,19 +146,19 @@
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
     <li class="nav-header">Find Favors</li>
-    <label class="radio">
-      <%= radio_button_tag('link_selector', 'offer_link') %>
+    <!--<label class="radio">-->
+      <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
 
-      <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>
-        Offers
-    </label>
+      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
+        <!--Offers-->
+    <!--</label>-->
 
-    <label class="radio" id="radio_request">
-<%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>
+    <!--<label class="radio" id="radio_request">-->
+<!--<#%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>-->
 
-      <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>
-        Requests
-    </label>
+      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
+        <!--Requests-->
+    <!--</label>-->
 
   <!--  <script>
 

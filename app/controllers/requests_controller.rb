@@ -8,9 +8,9 @@ class RequestsController < ApplicationController
 
 	  if params[:search]
 		  #@requests = Request.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
-		  @requests = Request.paginate(:page => params[:page], :per_page => 5)
+		  @requests = Request.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
 	  else if params[:category]
-		  @requests = Request.all.where(params[:category])
+		  @requests = Request.all.where(params[:category]).paginate(:page => params[:page], :per_page => 5)
 	  else
 		  @requests = Request.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 

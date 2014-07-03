@@ -15,12 +15,23 @@
 
       </div>
       <div class="span2 search-query search-query-rounded" style="display: inline-block">
+        <div style="display: inline-block">
 
-        <%= text_field_tag :search, params[:search], placeholder: "Search Offers",
-                           :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;'%>
-        <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
-             <span class="glyphicon glyphicon-search"> </span> Search
-        <% end %></div>  <% end %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Offers",
+                             :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;' %>
+          <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
+              <span class="glyphicon glyphicon-search"> </span> Search
+              </div>
+              </div>
+
+              <%= select_tag(:category, options_for_select(
+                      [['General'], ['Carpooling'], ['Delivery'],
+                       ['Labor'], ['Social'], ['Event'], ['Tutoring'],
+                       ['Studying']]),
+                             {class: "form-control", :style => "width:191px;"}) %>
+          <% end %>
+
+  <% end %>
 
 </div>
 
@@ -56,6 +67,9 @@
 
   </tbody>
 </table>
+
+<%= will_paginate @offers, renderer: BootstrapPagination::Rails %>
+
 
 <%= button_to new_offer_path, class: "btn btn-large primary", :method => :get  do %>
     New Offer <i class="glyphicon glyphicon-plus"></i>

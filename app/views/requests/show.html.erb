@@ -1,6 +1,8 @@
 <%- model_class = Request -%>
 <div class="page-header">
   <h4><%= @request.title %></h4>
+  <h5><%= @request.category %></h5>
+
 </div>
 
 <div style="margin-left: 5px" class="round-image-50">
@@ -12,7 +14,7 @@
 <dl class="dl-horizontal">
 
 
-  <p><%= @request.description %></p>
+  <p style="word-wrap: break-word"><%= @request.description %></p>
 </dl>
 
 

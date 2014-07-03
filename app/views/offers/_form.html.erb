@@ -10,7 +10,7 @@
               <%= f.label :category, :class => 'control-label' %>
               <div class="controls">
                 <%= f.select(:category, options_for_select(
-                        [['General'], ['Carpooling'], ['Delivery'],
+                        [['General', 1], ['Carpooling', 2], ['Delivery', "Delivery"],
                          ['Labor'], ['Social'], ['Event'], ['Tutoring'],
                          ['Studying']]), {},
                              {class: "form-control", :style => "width:191px;"}) %>
@@ -18,7 +18,7 @@
             </div>
 
             <div class="control-group">
-              <%= f.label :title, :class => 'control-label' %>
+              <%= f.label "I need help with...", :class => 'control-label' %>
               <div class="controls">
                 <%= f.text_field :title, :class => 'input-large text_field', :style => "width:510px;" %>
               </div>
@@ -32,7 +32,7 @@
             </div>
 
             <div class="control-group">
-              <%= f.label "What do I want in return? (optional)", :class => 'control-label' %>
+              <%= f.label "In return, I will... (optional)", :class => 'control-label' %>
               <div class="span6">
                 <%= f.text_area :give, :style => "width:510px; height: 100  " %>
               </div>
