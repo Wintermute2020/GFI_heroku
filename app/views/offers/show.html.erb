@@ -22,7 +22,7 @@
 <div class="form-actions" id="reply">
   <% if @offer.user != current_user %>
       <%= link_to "Reply",
-                  new_message_path(:offer => @offer.id), :class => 'btn'  %>
+                  newoffer_message_path(:offer => @offer.id), :class => 'btn'  %>
   <% end %>
   <%= link_to t('.back', :default => t("helpers.links.back")),
               offers_path, :class => 'btn btn-info'  %>

@@ -2,27 +2,41 @@
 <p><strong> Replying to: </strong> <%= conversation.subject %>  </p>
 
 
-<table class="table table-striped">
+<table class="table table-striped" style="table-layout: fixed; width: 100%">
   <tbody>
+
 
   <% @message = conversation.messages %>
   <% @message.each do |m| %>
       <% conversation.mark_as_read(current_user) %>
 
       <tr>
+
         <% if m.sender != current_user %>
-            <td><%= link_to m.sender.email, m.sender %></td>
-        <% else %>
-            <td>Me</td>
+            <div style="display: inline-block">
+              <td>
+
+              <div style="margin-left: 5px" class="round-image-50">
+                <%= image_tag(conversation.originator.logo.url(:small) ) %>
+              </div>
+              <%= link_to m.sender.email, m.sender %></td>
+            </div>
+      <% else %>
+            <div style="display: inline-block;">
+            <td>
+                <div style="margin-left: 5px" class="round-image-50">
+                  <%= image_tag(conversation.originator.logo.url(:small) ) %>
+                </div>
+                <div id="cell" style="position: absolute; display: inline-block; vertical-align: bottom">Me</div></td>
+            </div>
         <% end %>
 
-        <td> <%= m.body %> </td>
+        <td style="word-wrap: break-word"> <p><%= m.body %> </p></td>
 
-        <td></td>
-<!--TODO: render partial of ^^^-->
 
 
       </tr>
+
   <% end %>
 
   </tbody>
@@ -30,13 +44,14 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
             conversations_path, :class => 'btn'  %>
 
-
-<%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
-            :remote => true, :id => 'new_reply_link', :title => "Reply", :class => 'btn  btn-info' %>
+<!--failed ajax attempt. can't even render partials from here. must figure that out first.-->
 
 
-<br>
-<br>
-<br>
+<%= link_to "AJAX reply", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
+            :remote => true, :id => 'new_reply_link' %>
+
+
+
 <div id="replypartial">
 </div>
+
