@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
 
 	has_one :profile
 	has_one :location
+	belongs_to :offer
 
 	def gmaps4rails_address
 		address

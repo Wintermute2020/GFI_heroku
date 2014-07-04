@@ -128,6 +128,15 @@
   </div>
 
   <h4>Toronto, ON</h4>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">All Toronto</a></li>
+    <li><a href="#">Etobicoke</a></li>
+    <li class="">Downtown Toronto</li>
+    <li class="">Scarborough</li>
+    <li class="">Rouge Hill</li>
+    <li class="">Pickering</li>
+    <li class="">Ajax</li>
+    <li class="">Oshawa</li>
 
 
   </ol>
@@ -191,17 +200,17 @@
 
 
 
-    <li><%= link_to "Carpooling", offers_path(:category => {:category => "Carpooling"}) %></li>
-    <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"}) %></li>
-    <li><%= link_to "Studying", offers_path(:category => {:category => "Studying"}) %></li>
-    <li><%= link_to "Career", offers_path(:category => {:category => "Career"}) %></li>
-    <li><%= link_to "Art", offers_path(:category => {:category => "Art"}) %></li>
-    <li><%= link_to "Culture", offers_path(:category => {:category => "Culture"}) %></li>
-    <li><%= link_to "Learning", offers_path(:category => {:category => "Learning"}) %></li>
-    <li><%= link_to "Events", offers_path(:category => {:category => "Events"}) %></li>
-    <li><%= link_to "Delivery", offers_path(:category => {:category => "Delivery"}) %></li>
-    <li><%= link_to "Labor", offers_path(:category => {:category => "Labor"}) %></li>
-    <li><%= link_to "Social", offers_path(:category => {:category => "Social"}) %></li>
+    <li><%= link_to "Carpooling", requests_path(:category => {:category => "Carpooling"}) %></li>
+    <li> <%= link_to "Tutoring", requests_path(:category => {:category => "Tutoring"}) %></li>
+    <li><%= link_to "Studying", requests_path(:category => {:category => "Studying"}) %></li>
+    <li><%= link_to "Career", requests_path(:category => {:category => "Career"}) %></li>
+    <li><%= link_to "Art", requests_path(:category => {:category => "Art"}) %></li>
+    <li><%= link_to "Culture", requests_path(:category => {:category => "Culture"}) %></li>
+    <li><%= link_to "Learning", requests_path(:category => {:category => "Learning"}) %></li>
+    <li><%= link_to "Events", requests_path(:category => {:category => "Events"}) %></li>
+    <li><%= link_to "Delivery", requests_path(:category => {:category => "Delivery"}) %></li>
+    <li><%= link_to "Labor", requests_path(:category => {:category => "Labor"}) %></li>
+    <li><%= link_to "Social", requests_path(:category => {:category => "Social"}) %></li>
 
 
   </ul>

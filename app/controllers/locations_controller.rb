@@ -5,10 +5,10 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
 	  @locations = Location.all
-	  @json = @locations.to_gmaps4rails
+
 	  respond_to do |format|
 		  format.html # index.html.erb
-		  format.json { render json: @json }
+		  format.json { render json: @locations }
 	  end
   end
 
@@ -23,7 +23,8 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = Location.new
+    @location = Location.new(params[:offer_id])
+
   end
 
   # GET /locations/1/edit
@@ -78,6 +79,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :address, :longitude, :latitude, :gmaps)
+      params.require(:location).permit(:name, :address, :longitude, :latitude, :offer_id)
     end
 end

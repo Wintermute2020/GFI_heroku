@@ -4,7 +4,7 @@
     <div class="row-fluid">
 
       <div class="col-md-5 well">
-        <%= simple_form_for @offer, :html => {:multipart => true} do |f| %>
+        <%= simple_form_for Offer.new, :html => {:multipart => true} do |f| %>
 
 
             <div class="control-group">
@@ -50,6 +50,8 @@
                              {class: "form-control", :style => "width:191px;"}) %>
               </div>
             </div>
+
+
 
 
 <br>
