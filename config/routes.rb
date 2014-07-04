@@ -10,9 +10,7 @@ Rails.application.routes.draw do
 
 #  resources :locations
 
-  resources :requests do
-	  resources :galleries
-  end
+  resources :requests
 
 	resources :offers do
 		resources :galleries

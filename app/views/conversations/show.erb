@@ -17,7 +17,7 @@
               <td>
 
               <div style="margin-left: 5px" class="round-image-50">
-                <%= image_tag(conversation.originator.logo.url(:small) ) %>
+                <%= image_tag(m.sender.logo.url(:small) ) %>
               </div>
               <%= link_to m.sender.email, m.sender %></td>
             </div>
@@ -25,7 +25,7 @@
             <div style="display: inline-block;">
             <td>
                 <div style="margin-left: 5px" class="round-image-50">
-                  <%= image_tag(conversation.originator.logo.url(:small) ) %>
+                  <%= image_tag(m.sender.logo.url(:small) ) %>
                 </div>
                 <div id="cell" style="position: absolute; display: inline-block; vertical-align: bottom">Me</div></td>
             </div>
@@ -47,8 +47,8 @@
 <!--failed ajax attempt. can't even render partials from here. must figure that out first.-->
 
 
-<%= link_to "AJAX reply", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
-            :remote => true, :id => 'new_reply_link' %>
+<%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
+            :remote => true, :id => 'new_reply_link', :class => "btn btn-danger" %>
 
 
 

@@ -21,14 +21,16 @@
                              :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;' %>
           <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
               <span class="glyphicon glyphicon-search"> </span> Search
-              </div>
-              </div>
 
+              </div>
               <%= select_tag(:category, options_for_select(
                       [['General'], ['Carpooling'], ['Delivery'],
                        ['Labor'], ['Social'], ['Event'], ['Tutoring'],
                        ['Studying']]),
                              {class: "form-control", :style => "width:191px;"}) %>
+              </div>
+
+
           <% end %>
 
   <% end %>
@@ -53,13 +55,9 @@
         <td><%= link_to offer.title, offer_path(offer) %></td>
         <td><%= offer.created_at.strftime("%H:%M %b %d") %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_offer_path(offer), :class => 'button' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      offer_path(offer),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'button' %>
+
+
+
         </td>
       </tr>
     <% end %>

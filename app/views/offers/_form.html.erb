@@ -9,7 +9,7 @@
             <div class="control-group">
               <%= f.label :category, :class => 'control-label' %>
               <div class="controls">
-                <%= f.select(:category, options_for_select(
+                <%= f.select_tag(:category, options_for_select(
                         [['General', 1], ['Carpooling', 2], ['Delivery', "Delivery"],
                          ['Labor'], ['Social'], ['Event'], ['Tutoring'],
                          ['Studying']]), {},

@@ -30,8 +30,8 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-	  @request = Request.new
-	  @gallery = @request.build_gallery
+	  @requestnew = Request.new
+	  @gallery = @requestnew.build_gallery
 	  @pictures = @gallery.pictures
   end
 
