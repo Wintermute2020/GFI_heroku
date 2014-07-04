@@ -12,7 +12,7 @@
                 <%= f.select(:category, options_for_select(
                         [['General', 1], ['Carpooling', 2], ['Delivery', "Delivery"],
                          ['Labor'], ['Social'], ['Event'], ['Tutoring'],
-                         ['Studying']]), {},
+                         ['Studying']]), {:category => :category},
                              {class: "form-control", :style => "width:191px;"}) %>
               </div>
             </div>
@@ -66,21 +66,11 @@
             </div>
 
 
-
-
-
             <div class="controls">
               <%= f.submit nil, :class => 'btn btn-small mhm btn-info' %>
               <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                           offers_path, :class => 'btn btn-small mhm btn-warning' %>
             </div>
-
-
-
-
-
-
-
 
 
         <% end %>
