@@ -4,7 +4,7 @@
              as: :avatarable %>
 
   <%= form_for avatarable, url: avatar_path, multipart: true do |f| %>
-    <%= f.file_field :logo, "data-url" => avatar_path, input_html: { hidden: true } %>
+    <%= f.file_field :logo, input_html: { hidden: true } %>
 
   <% end %>
 </div>

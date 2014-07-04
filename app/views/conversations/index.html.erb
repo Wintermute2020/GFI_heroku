@@ -25,7 +25,9 @@
 
           <td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply" %></td>
 
-          <td> <%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title => "Move to Trash", :method => 'post' %></td>
+          <td> <%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title => "Move to Trash", :method => 'post' %>
+
+          </td>
 
         </tr>
           </tbody>

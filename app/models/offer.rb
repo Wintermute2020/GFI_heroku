@@ -3,7 +3,7 @@ class Offer < ActiveRecord::Base
 	acts_as_gmappable :process_geocoding => false
 
 	belongs_to :user
-	belongs_to :location
+	has_one :location
 
 	def self.search(query, query2)
 		where("title like ?", "%#{query}%").where("category like ?", "%#{query2}%")
