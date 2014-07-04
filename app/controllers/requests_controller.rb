@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
 
 	  if params[:search]
 		  #@requests = Request.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
-		  @requests = Request.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+		  @requests = Request.search(params[:search], params[:category]).paginate(:page => params[:page], :per_page => 5)
 	  else if params[:category]
 		  @requests = Request.all.where(params[:category]).paginate(:page => params[:page], :per_page => 5)
 	  else
@@ -30,8 +30,8 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-	  @requestnew = Request.new
-	  @gallery = @requestnew.build_gallery
+	  @request = Request.new
+	  @gallery = @request.build_gallery
 	  @pictures = @gallery.pictures
   end
 

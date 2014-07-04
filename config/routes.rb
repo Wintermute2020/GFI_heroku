@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :users do
 	  resources :profiles
   end
+
+  resources :offers
+
+
+
   resources :requests
 
   resources :profiles
@@ -12,9 +17,6 @@ Rails.application.routes.draw do
 
   resources :requests
 
-	resources :offers do
-		resources :galleries
-	end
 
   resources :pictures
 

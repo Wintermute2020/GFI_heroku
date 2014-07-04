@@ -4,7 +4,7 @@
     <div class="row-fluid">
 
       <div class="col-md-5 well">
-        <%= simple_form_for @requestnew, :html => {:multipart => true} do |f| %>
+        <%= simple_form_for @request, :html => {:multipart => true} do |f| %>
 
 
             <div class="control-group">
@@ -88,7 +88,7 @@
 
       <div class="col-md-5 well">
 
-        <%= f.fields_for @requestnew.gallery do |ff| %>
+        <%= f.fields_for @request.gallery do |ff| %>
 
             <div class="control-group">
               <%= ff.label :name, :class => 'control-label' %>

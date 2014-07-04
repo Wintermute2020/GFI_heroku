@@ -7,7 +7,7 @@ class OffersController < ApplicationController
     @offers = Offer.all
 
     if params[:search]
-	    @offers = Offer.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+	    @offers = Offer.search(params[:search], params[:category]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     else if params[:category]
 	    @offers = Offer.all.where(params[:category]).paginate(:page => params[:page], :per_page => 5)
 	   else

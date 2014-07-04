@@ -5,8 +5,9 @@ class Offer < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :location
 
-	def self.search(query)
-		where("title like ?", "%#{query}%")
+	def self.search(query, query2)
+		where("title like ?", "%#{query}%").where("category like ?", "%#{query2}%")
+
 	end
 
 
