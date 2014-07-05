@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
 
 	acts_as_messageable
-	acts_as_avatarable
+	acts_as_avatarable :default_url => "profile_pic.png"
 
 
-	has_many :offers
+
+  has_many :offers
 	has_many :requests
 	has_one :profile
 	has_one :gallery
@@ -46,6 +47,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+	:skip_confirmation!
 
 
 

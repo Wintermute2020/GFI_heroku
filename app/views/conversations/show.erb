@@ -47,9 +47,10 @@
 <!--failed ajax attempt. can't even render partials from here. must figure that out first.-->
 
 
-<%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
+<%= link_to "Reply AJAX", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
             :remote => true, :id => 'new_reply_link', :class => "btn btn-danger" %>
 
+<td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply", :class => "btn btn-danger"  %></td>
 
 
 <div id="replypartial">
