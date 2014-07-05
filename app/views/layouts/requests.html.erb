@@ -129,14 +129,16 @@
 
   <h4>Toronto, ON</h4>
   <ol class="breadcrumb" style="margin-bottom: 5px;">
-    <li><a href="#">All Toronto</a></li>
-    <li><a href="#">Etobicoke</a></li>
-    <li class="">Downtown Toronto</li>
-    <li class="">Scarborough</li>
-    <li class="">Rouge Hill</li>
-    <li class="">Pickering</li>
-    <li class="">Ajax</li>
-    <li class="">Oshawa</li>
+
+    <li><%= link_to "All Toronto", offers_path(:city_select => { :from => 'whatever', :to => 'whatever'}) %></li>
+    <li><%= link_to "Etobicoke", offers_path(:city => {:city => "Etobicoke"}) %></li>
+    <li><%= link_to "Downtown", offers_path(:city => {:city => "Downtown"}) %></li>
+    <li><%= link_to "Scarborough", offers_path(:city => {:city => "Scarborough"}) %></li>
+    <li><%= link_to "Rouge Hill", offers_path(:city => {:city => "Rouge Hill"}) %></li>
+    <li><%= link_to "Pickering", offers_path(:city => {:city => "Pickering"}) %></li>
+    <li><%= link_to "Ajax", offers_path(:city => {:city => "Ajax"}) %></li>
+    <li><%= link_to "Oshawa", offers_path(:city => {:city => "Oshawa"}) %></li>
+
 
 
   </ol>
@@ -156,47 +158,45 @@
 </div>
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
-    <li class="nav-header">Find Favors</li>
+    <li class="nav-header">Offer Categories</li>
     <!--<label class="radio">-->
-      <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
+    <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
 
-      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
-        <!--Offers-->
+    <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
+    <!--Offers-->
     <!--</label>-->
 
     <!--<label class="radio" id="radio_request">-->
-<!--<#%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>-->
+    <!--<#%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>-->
 
-      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
-        <!--Requests-->
+    <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
+    <!--Requests-->
     <!--</label>-->
 
-  <!--  <script>
+    <!--  <script>
 
-        jQuery(document).ready(function() {
+          jQuery(document).ready(function() {
 
-            $('#radio_request').find('input[name=link_selector]').change(function () {
+              $('#radio_request').find('input[name=link_selector]').change(function () {
 
-                alert("radio received.");
+                  alert("radio received.");
 
-            });
-
-
-        });
-
-    </script>
--->
-<!--
-    <#%= link_to "Text 1", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 1", offers_path, :class => 'link request_link' %>
-    <#%= link_to "Text 3", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 3", offers_path, :class => 'link request_link' %>
-    <#%= link_to "Text 4", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 4", offers_path, :class => 'link request_link' %>
-
--->
+              });
 
 
+          });
+
+      </script>
+  -->
+    <!--
+        <#%= link_to "Text 1", requests_path, :class => 'link offer_link' %>
+        <#%= link_to "Text 1", offers_path, :class => 'link request_link' %>
+        <#%= link_to "Text 3", requests_path, :class => 'link offer_link' %>
+        <#%= link_to "Text 3", offers_path, :class => 'link request_link' %>
+        <#%= link_to "Text 4", requests_path, :class => 'link offer_link' %>
+        <#%= link_to "Text 4", offers_path, :class => 'link request_link' %>
+
+    -->
 
 
 

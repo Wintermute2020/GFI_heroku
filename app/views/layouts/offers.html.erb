@@ -130,7 +130,7 @@
   <h4>Toronto, ON</h4>
   <ol class="breadcrumb" style="margin-bottom: 5px;">
 
-    <li><%= link_to "All Toronto", offers_path(:city_select => {:city_select => "All Toronto"}, :method => :post) %></li>
+    <li><%= link_to "All Toronto", offers_path(:city_select => { :from => 'whatever', :to => 'whatever'}) %></li>
     <li><%= link_to "Etobicoke", offers_path(:city => {:city => "Etobicoke"}) %></li>
     <li><%= link_to "Downtown", offers_path(:city => {:city => "Downtown"}) %></li>
     <li><%= link_to "Scarborough", offers_path(:city => {:city => "Scarborough"}) %></li>
