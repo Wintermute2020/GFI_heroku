@@ -26,7 +26,7 @@
                 <%= select_tag(:category, options_for_select(
                       [['General'], ['Carpooling'], ['Delivery'],
                        ['Labor'], ['Social'], ['Event'], ['Tutoring'],
-                       ['Studying']]), {class: "form-control", :style => "width:191px;"}) %>
+                       ['Studying']]), {class: "form-control", :style => "width:191px;", :prompt => "Category"}) %>
 
 
 
@@ -34,7 +34,7 @@
                         [['All Toronto'], ['Downtown'], ['Etobicoke'],
                          ['Scarborough'], ['Rouge Hill'], ['Pickering'], ['Ajax'],
                          ['Oshawa']]),
-                               {class: "form-control", :style => "width:191px;"}) %></div>
+                               {class: "form-control", :style => "width:191px;", :prompt => Location}) %></div>
               </div>
 
 
@@ -87,8 +87,6 @@
 
 
 
-<%= link_to "new offer", new_offer_path(@offer, :format => :js),
-            :remote => true, :id => 'new_comment_link' %>
 
 
 <div id="comments">

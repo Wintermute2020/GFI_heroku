@@ -6,11 +6,9 @@ class Offer < ActiveRecord::Base
 	has_one :location
 
 
-	# def self.search(query)
-	# 	where("title like ?", "%#{query}%")
-	#
-	# end
-	def self.offersearch(query, query2, query3)
+
+
+	def self.search(query, query2, query3)
 		where("title like ?", "%#{query}%").where("category like ?", "%#{query2}%").where("city like ?", "%#{query3}%")
 	end
 

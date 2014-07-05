@@ -8,9 +8,7 @@ class OffersController < ApplicationController
 
 
 		if params[:search]
-			@offers = Offer.all.where("title like ?", "%#{:search}%").order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-		elsif params[:offersearch]
-			@offers = Offer.offersearch(params[:offersearch], params[:category], params[:city]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+			@offers = Offer.search(params[:search], params[:category], params[:city]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 		elsif params[:city]
 			@offers = Offer.all.where(params[:city]).paginate(:page => params[:page], :per_page => 5)
 		elsif params[:category]
