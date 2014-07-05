@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
 	acts_as_messageable
-	acts_as_avatarable :default_url => "profile_pic.png"
+	acts_as_avatarable :default_url => "missing.png"
 
 
 
