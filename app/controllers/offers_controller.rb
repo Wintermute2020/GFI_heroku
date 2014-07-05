@@ -5,24 +5,26 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+	  @offers = Offer.all
 
-    if params[:search]
-	    @offers = Offer.search(params[:search], params[:category]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-    else if params[:category]
-	    @offers = Offer.all.where(params[:category]).paginate(:page => params[:page], :per_page => 5)
-	   else
+
+	  if params[:search]
+		  @offers = Offer.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+	  else if params[:offersearch]
+		  @offers = Offer.offersearch(params[:offersearch], params[:category], params[:city]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+	  else if params[:city]
+		  @offers = Offer.all.where(params[:city]).paginate(:page => params[:page], :per_page => 5)
+	  else if params[:category]
+		  @offers = Offer.all.where(params[:category]).where(params[:city]).paginate(:page => params[:page], :per_page => 5)
+	  else
 		  @offers = Offer.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
-    end
-  end
-
+	  end
+	  end
   # GET /offers/1
   # GET /offers/1.json
   def show
 		@offers = @offer
-	  # @json = @offers.to_gmaps4rails
-		unless @offer.location.nil?
-			@location = @offer.location
+	  @json = @offers.to_gmaps4rails
 	  respond_to do |format|
 		  format.html # index.html.erb
 		  format.json { render json: @json }
@@ -31,8 +33,6 @@ class OffersController < ApplicationController
   # GET /offers/new
   def new
     @offer = Offer.new
-#    @location = @offer.build_location
-
   end
 
   # GET /offers/1/edit
@@ -43,7 +43,6 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
- #   @location = @offer.build_location
 
     respond_to do |format|
       if @offer.save
@@ -88,9 +87,11 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:title, :description, :username, :address, :latitude, :longitude, :category).merge(user_id: current_user.id)
+      params.require(:offer).permit(:title, :description, :username, :address, :latitude, :longitude, :category, :city, :state, :give).merge(user_id: current_user.id)
 
     end
-end
+	  end
+	  end
   end
 	end
+

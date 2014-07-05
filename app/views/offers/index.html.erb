@@ -8,7 +8,8 @@
 
 
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=  %><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
   <%= form_tag offers_path, :method => "get" do %>
 
       <div class="span3">
@@ -16,24 +17,32 @@
       </div>
       <div class="span2 search-query search-query-rounded" style="display: inline-block">
         <div style="display: inline-block">
-
           <%= text_field_tag :search, params[:search], placeholder: "Search Offers",
                              :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;' %>
           <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
               <span class="glyphicon glyphicon-search"> </span> Search
               </div>
+              <div class="form-inline">
+                <%= select_tag(:category, options_for_select(
+                      [['General'], ['Carpooling'], ['Delivery'],
+                       ['Labor'], ['Social'], ['Event'], ['Tutoring'],
+                       ['Studying']]), {class: "form-control", :style => "width:191px;"}) %>
+
+
+
+                <%= select_tag(:city, options_for_select(
+                        [['All Toronto'], ['Downtown'], ['Etobicoke'],
+                         ['Scarborough'], ['Rouge Hill'], ['Pickering'], ['Ajax'],
+                         ['Oshawa']]),
+                               {class: "form-control", :style => "width:191px;"}) %></div>
               </div>
 
-              <%= select_tag(:category, options_for_select(
-                       [['General'], ['Carpooling'], ['Delivery'],
-                       ['Labor'], ['Social'], ['Event'], ['Tutoring'],
-                       ['Studying']]),
-                             {class: "form-control", :style => "width:191px;"}) %>
+
+              </div>
           <% end %>
 
   <% end %>
 
-</div>
 
 <table class="table table-striped">
   <thead>
@@ -43,6 +52,7 @@
 
 
   <% @offers.each do |offer| %>
+
       <tr>
 
         <td>
@@ -51,6 +61,8 @@
           </div>
           <%= link_to offer.user.name, user_path(offer.user.id) %></td>
         <td><%= link_to offer.title, offer_path(offer) %></td>
+        <td><%= offer.city %></td>
+
         <td><%= offer.created_at.strftime("%I:%M %p, %b %d") %></td>
         <td>
 
@@ -58,10 +70,12 @@
 
         </td>
       </tr>
-    <% end %>
+
+  <% end %>
 
 
   </tbody>
+
 </table>
 
 <%= will_paginate @offers, renderer: BootstrapPagination::Rails %>

@@ -129,14 +129,16 @@
 
   <h4>Toronto, ON</h4>
   <ol class="breadcrumb" style="margin-bottom: 5px;">
-    <li><a href="#">All Toronto</a></li>
-    <li><a href="#">Etobicoke</a></li>
-    <li class="">Downtown Toronto</li>
-    <li class="">Scarborough</li>
-    <li class="">Rouge Hill</li>
-    <li class="">Pickering</li>
-    <li class="">Ajax</li>
-    <li class="">Oshawa</li>
+
+    <li><%= link_to "All Toronto", offers_path(:city_select => {:city_select => "All Toronto"}, :method => :post) %></li>
+    <li><%= link_to "Etobicoke", offers_path(:city => {:city => "Etobicoke"}) %></li>
+    <li><%= link_to "Downtown", offers_path(:city => {:city => "Downtown"}) %></li>
+    <li><%= link_to "Scarborough", offers_path(:city => {:city => "Scarborough"}) %></li>
+    <li><%= link_to "Rouge Hill", offers_path(:city => {:city => "Rouge Hill"}) %></li>
+    <li><%= link_to "Pickering", offers_path(:city => {:city => "Pickering"}) %></li>
+    <li><%= link_to "Ajax", offers_path(:city => {:city => "Ajax"}) %></li>
+    <li><%= link_to "Oshawa", offers_path(:city => {:city => "Oshawa"}) %></li>
+
 
 
   </ol>
@@ -156,7 +158,7 @@
 </div>
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
-    <li class="nav-header">Find Favors</li>
+    <li class="nav-header">Offer Categories</li>
     <!--<label class="radio">-->
       <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
 
@@ -200,17 +202,17 @@
 
 
 
-    <li><%= link_to "Carpooling", offers_path(:category => {:category => "Carpooling"}) %></li>
-    <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"}) %></li>
+    <li><%= link_to "Carpooling", offers_path(:category => {:category => "Carpooling", :city => :city}) %></li>
+    <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"})%></li>
     <li><%= link_to "Studying", offers_path(:category => {:category => "Studying"}) %></li>
     <li><%= link_to "Career", offers_path(:category => {:category => "Career"}) %></li>
-    <li><%= link_to "Art", offers_path(:category => {:category => "Art"}) %></li>
-    <li><%= link_to "Culture", offers_path(:category => {:category => "Culture"}) %></li>
-    <li><%= link_to "Learning", offers_path(:category => {:category => "Learning"}) %></li>
-    <li><%= link_to "Events", offers_path(:category => {:category => "Events"}) %></li>
-    <li><%= link_to "Delivery", offers_path(:category => {:category => "Delivery"}) %></li>
-    <li><%= link_to "Labor", offers_path(:category => {:category => "Labor"}) %></li>
-    <li><%= link_to "Social", offers_path(:category => {:category => "Social"}) %></li>
+    <li><%= link_to "Art", offers_path(:category => {:category => "Art"}, :selected_category => "Carpooling") %></li>
+    <li><%= link_to "Culture", offers_path(:category => {:category => "Culture"}, :selected_category => "Carpooling") %></li>
+    <li><%= link_to "Learning", offers_path(:category => {:category => "Learning"}, :selected_category => "Carpooling") %></li>
+    <li><%= link_to "Events", offers_path(:category => {:category => "Events"}, :selected_category => "Carpooling") %></li>
+    <li><%= link_to "Delivery", offers_path(:category => {:category => "Delivery"}, :selected_category => "Carpooling") %></li>
+    <li><%= link_to "Labor", offers_path(:category => {:category => "Labor"}, :selected_category => "Carpooling") %></li>
+    <li><%= link_to "Social", offers_path(:category => {:category => "Social"}, :selected_category => "Carpooling") %></li>
 
 
   </ul>
