@@ -5,7 +5,7 @@ class OffersController < ApplicationController
 	# GET /offers.json
 	def index
 		@offers = Offer.all
-
+		@locations = Location.all.order(:id)
 
 		if params[:search]
 			@offers = Offer.all.where("title like ?", "%#{:search}%").order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
@@ -34,6 +34,8 @@ class OffersController < ApplicationController
 	# GET /offers/new
 	def new
 		@offer = Offer.new
+		@locations = Location.all
+
 	end
 
 	# GET /offers/1/edit

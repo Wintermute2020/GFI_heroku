@@ -4,7 +4,7 @@
     <div class="row-fluid">
 
       <div class="col-md-5 well">
-        <%= simple_form_for Offer.new, :html => {:multipart => true} do |f| %>
+        <%= simple_form_for @offer, :html => {:multipart => true} do |f| %>
 
 
             <div class="control-group">
@@ -40,16 +40,12 @@
             </div>
 
 
+
             <div class="control-group">
               <%= f.label "Location", :class => 'control-label' %>
               <div class="controls">
-                <%= f.select(:city, options_for_select(
-                        [['All Toronto'], ['Downtown'], ['Etobicoke'],
-                         ['Scarborough'], ['Rouge Hill'], ['Pickering'], ['Ajax'],
-                         ['Oshawa']]), {},
-                             {class: "form-control", :style => "width:191px;"}) %>
+                <%= select_tag(:location_id, options_from_collection_for_select(@locations, :id, :name), {class: "form-control", :style => "width:191px;"}) %>
               </div>
-            </div>
 
 
 
@@ -83,3 +79,4 @@
   </div>
 
 
+</div>

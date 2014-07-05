@@ -23,10 +23,7 @@
               <span class="glyphicon glyphicon-search"> </span> Search
               </div>
               <div class="form-inline">
-                <%= select_tag(:category, options_for_select(
-                      [['General'], ['Carpooling'], ['Delivery'],
-                       ['Labor'], ['Social'], ['Event'], ['Tutoring'],
-                       ['Studying']]), {class: "form-control", :style => "width:191px;"}) %>
+                <%= select_tag(:category, options_from_collection_for_select(@locations, :id, :name), {class: "form-control", :style => "width:191px;"}) %>
 
 
 

@@ -3,6 +3,11 @@ class LocationsController < ApplicationController
 
   # GET /locations
   # GET /locations.json
+
+  def offersindex
+	  @offers = Offer.all
+
+  end
   def index
 	  @locations = Location.all
 
@@ -15,6 +20,10 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+	  @location  = Location.find(params[:id])
+	  @offers = @location.offers
+
+
 	  respond_to do |format|
 		  format.html # index.html.erb
 		  format.json { render json: @locations }

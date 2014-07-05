@@ -3,7 +3,7 @@ class Offer < ActiveRecord::Base
 	acts_as_gmappable :process_geocoding => false
 
 	belongs_to :user
-	has_one :location
+	belongs_to :location
 
 
 	# def self.search(query)
