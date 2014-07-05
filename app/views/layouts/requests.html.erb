@@ -91,15 +91,12 @@
 
       <% end %>
 
-      <form class="navbar-form navbar-right">
-        <%= form_tag(offers_path, :method => :get) do %>
-            <%= text_field_tag :search, nil,
-                               {:id => "search-query-2", :placeholder => "Search offers..."} %>
-            <%= hidden_field_tag :use_keywords, "true" %>
-            <%= hidden_field_tag :wide_search, "true" %>
-        <% end %>
-      </form>
-
+      <div class="navbar-form navbar-right"><%= form_tag(offers_path, :method => :get) do %>
+          <%= text_field_tag :search, nil,
+                             {:id => "search-query-2", :placeholder => "Search offers...", } %>
+          <%= hidden_field_tag :use_keywords, "true" %>
+      <% end %>
+      </div>
     </div>
   </div>
   <div id="headerbar2">
@@ -158,7 +155,7 @@
 </div>
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
-    <li class="nav-header">Offer Categories</li>
+    <li class="nav-header">Request Categories</li>
     <!--<label class="radio">-->
     <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
 

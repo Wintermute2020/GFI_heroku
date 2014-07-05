@@ -91,14 +91,14 @@
 
       <% end %>
 
-      <form class="navbar-form navbar-right">
-        <%= form_tag(offers_path) do %>
-            <%= text_field_tag :search, params[:search],
+
+      <div class="navbar-form navbar-right">
+        <%= form_tag(offers_path, :method => :get) do %>
+            <%= text_field_tag :search, nil,
                                {:id => "search-query-2", :placeholder => "Search offers..."} %>
             <%= hidden_field_tag :use_keywords, "true" %>
         <% end %>
-      </form>
-
+      </div>
     </div>
   </div>
   <div id="headerbar2">
