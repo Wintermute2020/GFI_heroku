@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 		  get :reply
 	  end
   end
+
   resources :conversations do
 	  member do
 		  get  :reply
