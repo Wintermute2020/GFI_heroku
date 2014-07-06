@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 			              :default_url => ":rails_root/public/images/missing.png",
 	                  :path => ":rails_root/public/images/:id/:filename",
 	                  :url  => "/images/:id/:filename",
-	                  :styles => { :small => "1000x1000>" }
+	                  :styles => { :large => "2000x2000>" }
 
 
 	do_not_validate_attachment_file_type :avatar

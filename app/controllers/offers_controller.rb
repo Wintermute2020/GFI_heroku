@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
 	before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
+
 	# GET /offers
 	# GET /offers.json
 	def index
@@ -32,7 +33,8 @@ class OffersController < ApplicationController
 	# GET /offers/new
 	def new
 		@offer = Offer.new
-		@locations = Location.all
+		@locations = Location.all.order(:id)
+
 
 	end
 
@@ -59,7 +61,10 @@ class OffersController < ApplicationController
 	# PATCH/PUT /offers/1
 	# PATCH/PUT /offers/1.json
 	def update
+		@locations = Location.all.order(:id)
+
 		respond_to do |format|
+
 			if @offer.update(offer_params)
 				format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
 				format.json { render :show, status: :ok, location: @offer }

@@ -4,7 +4,7 @@
     <div class="row-fluid">
 
       <div class="col-md-5 well">
-        <%= simple_form_for @request, :html => {:multipart => true} do |f| %>
+        <%= bootstrap_form_for @request, :html => {:multipart => true} do |f| %>
 
 
             <div class="control-group">
@@ -89,19 +89,7 @@
 
         <%= f.fields_for @request.gallery do |ff| %>
 
-            <div class="control-group">
-              <%= ff.label :name, :class => 'control-label' %>
-              <div class="controls">
-                <%= ff.text_field :name, :class => 'text_field' %>
-              </div>
-            </div>
-            <div class="control-group">
-              <%= ff.label :description, :class => 'control-label' %>
-              <div class="controls">
-                <%= ff.text_field :description, :class => 'text_field' %>
-              </div>
-            </div>
-
+           <h6> <STRONG>Add Pictures</STRONG></h6>
             <div class="control-group">
               <%= ff.label :pictures, :class => 'control-label' %>
               <div class="controls">
@@ -109,6 +97,15 @@
                 <%= file_field_tag "images[]", type: :file, multiple: true %>
               </div>
             </div>
+
+
+            <div class="control-group">
+              <%= ff.label :description, :class => 'control-label' %>
+              <div class="controls">
+                <%= ff.text_field :description, :class => 'text_field' %>
+              </div>
+            </div>
+
 
         <% end %>
         <% end %>

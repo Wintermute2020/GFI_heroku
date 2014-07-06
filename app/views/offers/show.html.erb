@@ -28,13 +28,15 @@
   <% end %>
   <%= link_to t('.back', :default => t("helpers.links.back")),
               offers_path, :class => 'btn btn-info'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_offer_path(@offer), :class => 'btn btn-inverse' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              offer_path(@offer),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+  <% if @offer.user == current_user %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_offer_path(@offer), :class => 'btn btn-inverse' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  offer_path(@offer),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+  <% end %>
   <a href="#fakelink" class="btn btn-small btn-social-facebook">
     <i class="fui-facebook"></i>
     Share

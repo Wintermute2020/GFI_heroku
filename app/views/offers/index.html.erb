@@ -44,7 +44,7 @@
   <% end %>
 
 
-<table class="table table-striped">
+<table class="table-responsive table-striped"  style="table-layout: fixed; width: 100%">
   <thead>
 
   </thead>
@@ -60,10 +60,10 @@
             <%= image_tag(offer.user.logo.url(:small) ) %>
           </div>
           <%= link_to offer.user.name, user_path(offer.user.id) %></td>
-        <td><%= link_to offer.title, offer_path(offer) %></td>
-        <td><%= offer.city %></td>
+        <td style="word-wrap: break-word; width: 55%"><%= link_to offer.title, offer_path(offer) %></td>
+        <td  style="width: 10%"><%= offer.city %></td>
 
-        <td><%= offer.created_at.strftime("%I:%M %p, %b %d") %></td>
+        <td class="right" style=""><%= offer.created_at.strftime("%I:%M %p, %b %d") %></td>
         <td>
 
 
@@ -96,3 +96,5 @@
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 
+
+<%= render 'devise/registrations/new' %>

@@ -19,7 +19,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'bootstrap_form'
 gem 'will_paginate-bootstrap'
-
+gem "dynamic_form"
 
 #from untitled16
 gem 'less-rails'

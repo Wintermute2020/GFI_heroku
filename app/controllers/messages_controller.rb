@@ -15,6 +15,8 @@ class MessagesController < ApplicationController
 
 	def reply
 		@conversation ||= current_user.mailbox.conversations.find(params[:id])
+
+
 	end
 
 	# POST /message/create

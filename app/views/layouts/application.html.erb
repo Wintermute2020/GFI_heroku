@@ -26,6 +26,7 @@
       <a class="navbar-brand" rel="home" href="localhost:3000" title="Buy Sell Rent Everyting">
         <img style="max-width:140px; margin-top: -7px; margin-left: -15px;"
              src="/images/gofavorit-green.png">
+
       </a>
 
     </div>
@@ -143,45 +144,7 @@
 </div>
 <div class="col-sm-3 col-md-2 sidebar-offcanvas well" id="sidebar" role="navigation">
   <ul class="nav nav-list">
-    <li class="nav-header">Find Favors</li>
-    <!--<label class="radio">-->
-      <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
-
-      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
-        <!--Offers-->
-    <!--</label>-->
-
-    <!--<label class="radio" id="radio_request">-->
-<!--<#%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>-->
-
-      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
-        <!--Requests-->
-    <!--</label>-->
-
-  <!--  <script>
-
-        jQuery(document).ready(function() {
-
-            $('#radio_request').find('input[name=link_selector]').change(function () {
-
-                alert("radio received.");
-
-            });
-
-
-        });
-
-    </script>
--->
-<!--
-    <#%= link_to "Text 1", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 1", offers_path, :class => 'link request_link' %>
-    <#%= link_to "Text 3", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 3", offers_path, :class => 'link request_link' %>
-    <#%= link_to "Text 4", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 4", offers_path, :class => 'link request_link' %>
-
--->
+    <li class="nav-header">Find Offers</li>
 
 
 
@@ -198,6 +161,28 @@
     <li><%= link_to "Delivery", offers_path(:category => {:category => "Delivery"}) %></li>
     <li><%= link_to "Labor", offers_path(:category => {:category => "Labor"}) %></li>
     <li><%= link_to "Social", offers_path(:category => {:category => "Social"}) %></li>
+
+
+  </ul>
+
+  <ul class="nav nav-list">
+    <li class="nav-header">Find Requests</li>
+
+
+
+
+
+    <li><%= link_to "Carpooling", requests_path(:category => {:category => "Carpooling"}) %></li>
+    <li> <%= link_to "Tutoring", requests_path(:category => {:category => "Tutoring"}) %></li>
+    <li><%= link_to "Studying", requests_path(:category => {:category => "Studying"}) %></li>
+    <li><%= link_to "Career", requests_path(:category => {:category => "Career"}) %></li>
+    <li><%= link_to "Art", requests_path(:category => {:category => "Art"}) %></li>
+    <li><%= link_to "Culture", requests_path(:category => {:category => "Culture"}) %></li>
+    <li><%= link_to "Learning", requests_path(:category => {:category => "Learning"}) %></li>
+    <li><%= link_to "Events", requests_path(:category => {:category => "Events"}) %></li>
+    <li><%= link_to "Delivery", requests_path(:category => {:category => "Delivery"}) %></li>
+    <li><%= link_to "Labor", requests_path(:category => {:category => "Labor"}) %></li>
+    <li><%= link_to "Social", requests_path(:category => {:category => "Social"}) %></li>
 
 
   </ul>
