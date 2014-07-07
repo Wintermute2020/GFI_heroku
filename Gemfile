@@ -19,7 +19,9 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'bootstrap_form'
 gem 'will_paginate-bootstrap'
-gem "dynamic_form"
+gem 'dynamic_form'
+gem 'social-share-button', '~> 0.1.6'
+gem 'shareable'
 
 #from untitled16
 gem 'less-rails'

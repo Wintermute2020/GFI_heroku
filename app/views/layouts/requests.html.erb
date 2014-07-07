@@ -24,10 +24,9 @@
 
       </button>
 
-      <a class="navbar-brand" rel="home" href="localhost:3000" title="Buy Sell Rent Everyting">
-        <img style="max-width:140px; margin-top: -7px; margin-left: -15px;"
-             src="/images/gofavorit-green.png">
-      </a>
+      <div style="max-width:140px; margin-top: 5px; margin-left: -10px;">
+        <%= link_to(image_tag("gofavorit-green.png"), root_path) %>
+      </div>
 
     </div>
     <div class="navbar-collapse collapse">
@@ -127,14 +126,14 @@
   <h4>Toronto, ON</h4>
   <ol class="breadcrumb" style="margin-bottom: 5px;">
 
-    <li><%= link_to "All Toronto", offers_path(:city_select => { :from => 'whatever', :to => 'whatever'}) %></li>
-    <li><%= link_to "Etobicoke", offers_path(:city => {:city => "Etobicoke"}) %></li>
-    <li><%= link_to "Downtown", offers_path(:city => {:city => "Downtown"}) %></li>
-    <li><%= link_to "Scarborough", offers_path(:city => {:city => "Scarborough"}) %></li>
-    <li><%= link_to "Rouge Hill", offers_path(:city => {:city => "Rouge Hill"}) %></li>
-    <li><%= link_to "Pickering", offers_path(:city => {:city => "Pickering"}) %></li>
-    <li><%= link_to "Ajax", offers_path(:city => {:city => "Ajax"}) %></li>
-    <li><%= link_to "Oshawa", offers_path(:city => {:city => "Oshawa"}) %></li>
+    <li><%= link_to "All Toronto", requests_path(:city_select => { :from => 'whatever', :to => 'whatever'}) %></li>
+    <li><%= link_to "Etobicoke", requests_path(:city => {:city => "Etobicoke"}) %></li>
+    <li><%= link_to "Downtown", requests_path(:city => {:city => "Downtown"}) %></li>
+    <li><%= link_to "Scarborough", requests_path(:city => {:city => "Scarborough"}) %></li>
+    <li><%= link_to "Rouge Hill", requests_path(:city => {:city => "Rouge Hill"}) %></li>
+    <li><%= link_to "Pickering", requests_path(:city => {:city => "Pickering"}) %></li>
+    <li><%= link_to "Ajax", requests_path(:city => {:city => "Ajax"}) %></li>
+    <li><%= link_to "Oshawa", requests_path(:city => {:city => "Oshawa"}) %></li>
 
 
 
@@ -222,8 +221,6 @@
 </div>
 
 <!-- Codes by HTML.am -->
-<div style="background-image:url(gofavorit-background.png)">
-</div>
 
 </body>
 

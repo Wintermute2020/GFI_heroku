@@ -24,18 +24,17 @@
 
       </button>
 
-      <a class="navbar-brand" rel="home" href="localhost:3000" title="Buy Sell Rent Everyting">
-        <img style="max-width:140px; margin-top: -7px; margin-left: -15px;"
-             src="/images/gofavorit-green.png">
-      </a>
-
+      <div style="max-width:140px; margin-top: 5px; margin-left: -10px;">
+        <%= link_to(image_tag("gofavorit-green.png"), root_path) %>
+      </div>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
 
 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-gift"></i> Favors<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-gift"></i>
+            Favors<b class="caret"></b></a>
           <ul class="btn-group select select-block mbl">
 
             <li><%= link_to "View Offers", offers_path %></li>
@@ -55,7 +54,7 @@
 
         <% if user_signed_in? %>
 
-            <li><%= link_to conversations_path, :method => :get  do %>
+            <li><%= link_to conversations_path, :method => :get do %>
                   <i class="glyphicon glyphicon-envelope"></i> Inbox
               <% end %>
 
@@ -66,10 +65,11 @@
                   </li>
               <% end %>
               <% @user = current_user %>
-              <li><li><%= link_to user_path(@user.id), :method => :get  do %>
-                  <i class="glyphicon glyphicon-home"></i> Profile
-              <% end %>
-            </li>
+              <li>
+              <li><%= link_to user_path(@user.id), :method => :get do %>
+                    <i class="glyphicon glyphicon-home"></i> Profile
+                <% end %>
+              </li>
         <% end %>
         <li><a href="#">Help</a></li>
 
@@ -127,7 +127,7 @@
   <h4>Toronto, ON</h4>
   <ol class="breadcrumb" style="margin-bottom: 5px;">
 
-    <li><%= link_to "All Toronto", offers_path(:city_select => { :from => 'whatever', :to => 'whatever'}) %></li>
+    <li><%= link_to "All Toronto", offers_path(:city_select => {:from => 'whatever', :to => 'whatever'}) %></li>
     <li><%= link_to "Etobicoke", offers_path(:city => {:city => "Etobicoke"}) %></li>
     <li><%= link_to "Downtown", offers_path(:city => {:city => "Downtown"}) %></li>
     <li><%= link_to "Scarborough", offers_path(:city => {:city => "Scarborough"}) %></li>
@@ -135,7 +135,6 @@
     <li><%= link_to "Pickering", offers_path(:city => {:city => "Pickering"}) %></li>
     <li><%= link_to "Ajax", offers_path(:city => {:city => "Ajax"}) %></li>
     <li><%= link_to "Oshawa", offers_path(:city => {:city => "Oshawa"}) %></li>
-
 
 
   </ol>
@@ -157,50 +156,47 @@
   <ul class="nav nav-list">
     <li class="nav-header">Offer Categories</li>
     <!--<label class="radio">-->
-      <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
+    <!--<#%= radio_button_tag('link_selector', 'offer_link') %>-->
 
-      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
-        <!--Offers-->
+    <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
+    <!--Offers-->
     <!--</label>-->
 
     <!--<label class="radio" id="radio_request">-->
-<!--<#%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>-->
+    <!--<#%= radio_button_tag('link_selector', "link_selector", id: "link_selector" )%>-->
 
-      <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
-        <!--Requests-->
+    <!--<span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span>-->
+    <!--Requests-->
     <!--</label>-->
 
-  <!--  <script>
+    <!--  <script>
 
-        jQuery(document).ready(function() {
+          jQuery(document).ready(function() {
 
-            $('#radio_request').find('input[name=link_selector]').change(function () {
+              $('#radio_request').find('input[name=link_selector]').change(function () {
 
-                alert("radio received.");
+                  alert("radio received.");
 
-            });
-
-
-        });
-
-    </script>
--->
-<!--
-    <#%= link_to "Text 1", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 1", offers_path, :class => 'link request_link' %>
-    <#%= link_to "Text 3", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 3", offers_path, :class => 'link request_link' %>
-    <#%= link_to "Text 4", requests_path, :class => 'link offer_link' %>
-    <#%= link_to "Text 4", offers_path, :class => 'link request_link' %>
-
--->
+              });
 
 
+          });
 
+      </script>
+  -->
+    <!--
+        <#%= link_to "Text 1", requests_path, :class => 'link offer_link' %>
+        <#%= link_to "Text 1", offers_path, :class => 'link request_link' %>
+        <#%= link_to "Text 3", requests_path, :class => 'link offer_link' %>
+        <#%= link_to "Text 3", offers_path, :class => 'link request_link' %>
+        <#%= link_to "Text 4", requests_path, :class => 'link offer_link' %>
+        <#%= link_to "Text 4", offers_path, :class => 'link request_link' %>
+
+    -->
 
 
     <li><%= link_to "Carpooling", offers_path(:category => {:category => "Carpooling", :city => :city}) %></li>
-    <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"})%></li>
+    <li> <%= link_to "Tutoring", offers_path(:category => {:category => "Tutoring"}) %></li>
     <li><%= link_to "Studying", offers_path(:category => {:category => "Studying"}) %></li>
     <li><%= link_to "Career", offers_path(:category => {:category => "Career"}) %></li>
     <li><%= link_to "Art", offers_path(:category => {:category => "Art"}, :selected_category => "Carpooling") %></li>
@@ -226,6 +222,7 @@
 <!-- Codes by HTML.am -->
 <div style="background-image:url(gofavorit-background.png)">
 </div>
+<%= link_to "Home", root_path %>
 
 </body>
 

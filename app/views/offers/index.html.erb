@@ -81,9 +81,17 @@
 <%= will_paginate @offers, renderer: BootstrapPagination::Rails %>
 
 
-<%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get  do %>
-    New Offer <i class="glyphicon glyphicon-plus"></i>
+<% if user_signed_in? %>
+    <%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get  do %>
+        New Offer <i class="glyphicon glyphicon-plus"></i>
+      <% end %>
+
+<% else %>
+  <%= button_to new_user_session_path, class: "btn btn-large btn-inverse" do %>
+      New Offer <i class="glyphicon glyphicon-plus"></i>
+    <% end %>
 <% end %>
+
 
 
 
@@ -97,4 +105,3 @@
 </div>
 
 
-<%= render 'devise/registrations/new' %>
