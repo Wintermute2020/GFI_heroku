@@ -1,19 +1,45 @@
-<img src="gofavorit-green.png"/>
 
-<div><h3>Welcome.</h3>
+        <div class="logo"></div>
+<div style="margin-top: 10px">
+<div><h3>Come together.</h3>
 
   <p class="lead"> Hello, and <span class="text-success">welcome</span> to <strong><span class="text-warning">GoFavorIt</span></strong>. GoFavorIt gives users the opportunity to <span class="text-info">give and take</span>. To <span class="text-info">ask and receive</span>. Ask
     the things you would not normally expect an answer to. Give to the world what it <span class="text-warning ">needs from you</span>.
 
 
+  <div class="authform">
 
-  <h5>What is this?</h5>
-  You can post requests for small services, such as rides to school or work, help with english tutoring, or even help with
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+        <h3>Sign up</h3>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <%= f.submit 'Sign up', :class => 'button right' %>
+    <% end %>
+  </div>
+
+  <h3>What is Gofavorit? </h3>
+  <p class="lead">You can post requests for small services, such as rides to school or work, help with english tutoring, or even help with
   your garden. In return, offer services that you think would be useful to others, in areas which your skills would
   be beneficial.
 
   Our site will grow with you. If you have suggestions that you believe would make this a better place for
-  everyone, do us a favor and let us know. We're here for you, and we hope that you will be too.
+  everyone, do us a favor and let us know. We're here for you, and we hope that you will be too.</p>
 </div>
 <br>
 <br>
@@ -24,28 +50,4 @@
 <%= render_shareable %>
 
 
-<div class="authform">
-
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-      <h3>Sign up</h3>
-      <%= devise_error_messages! %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-      </div>
-
-      <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
 </div>

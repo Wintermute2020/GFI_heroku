@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
+
+
+
   root :to => "visitors#index"
 
   devise_for :users
   resources :users do
 	  resources :profiles
   end
+
+
+
+  resource :pages do
+	  member do
+		  get :help
+	  end
+  end
+
 
   resources :offers
 
