@@ -11,7 +11,7 @@
         <div style="display: inline-block">
           <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 
-          <%= text_field_tag :search, params[:search], placeholder: "Search Offers",
+          <%= text_field_tag :search, params[:search], placeholder: "Search Requests",
                              :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;' %>
           <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
               <span class="glyphicon glyphicon-search"> </span> Search
@@ -41,7 +41,7 @@
 
 
 
-  <table class="table table-striped">
+  <table class="table table-striped table-responsive">
 
     <tbody>
     <!--paginate @requests -->
@@ -56,16 +56,11 @@
             <%= link_to request.user.name %></td>
 
           <td><%= link_to request.title, request_path(request) %></td>
+          <td><%= request.city %></td>
+
           <td><%= request.created_at.strftime("%H:%M %b %d") %></td>
 
           <td>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_request_path(request), :class => 'button button-mini' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        request_path(request),
-                        :method => :delete,
-                        :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
-                        :class => 'button button-mini button-danger' %>
           </td>
         </tr>
     <% end %>
@@ -74,13 +69,13 @@
   <%= will_paginate @requests, renderer: BootstrapPagination::Rails %>
 
   <% if user_signed_in? %>
-      <%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get  do %>
-          New Offer <i class="glyphicon glyphicon-plus"></i>
+      <%= button_to new_request_path, class: "btn btn-large btn-inverse", :method => :get  do %>
+          New Request <i class="glyphicon glyphicon-plus"></i>
       <% end %>
 
   <% else %>
       <%= button_to new_user_session_path, class: "btn btn-large btn-inverse" do %>
-          New Offer <i class="glyphicon glyphicon-plus"></i>
+          New Request <i class="glyphicon glyphicon-plus"></i>
       <% end %>
   <% end %>
 

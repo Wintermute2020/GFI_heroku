@@ -1,20 +1,16 @@
 <%- model_class = Offer -%>
 
 
-
-
-
-
 <div class="page-header">
-  <h1><%= %><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-
-  <%= form_tag offers_path, :method => "get" do %>
-
+  <%= form_tag offers_path, :method => "get" do |f| %>
       <div class="span3">
 
       </div>
       <div class="span2 search-query search-query-rounded" style="display: inline-block">
+
         <div style="display: inline-block">
+          <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
           <%= text_field_tag :search, params[:search], placeholder: "Search Offers",
                              :style => 'width: 500px; display: inline-block; height: 36px; vertical-align: middle;' %>
           <%= button_tag("Search", type: 'submit', class: "btn btn-primary") do %>
@@ -42,39 +38,38 @@
   <% end %>
 
 
-  <table class="table-responsive table-striped" style="width: 100%">
-    <thead>
 
-    </thead>
+
+
+  <table class=" table-striped table-responsive">
+
     <tbody>
-
+    <!--paginate @offers -->
 
     <% @offers.each do |offer| %>
 
         <tr>
-
           <td>
             <div style="margin-left: 5px" class="round-image-50">
               <%= image_tag(offer.user.logo.url(:small)) %>
             </div>
-            <%= link_to offer.user.name, user_path(offer.user.id) %></td>
-          <td style="word-wrap: break-word; width: 50%"><%= link_to offer.title, offer_path(offer) %></td>
-          <td style="width: 10%"><%= offer.city %></td>
+            <%= link_to offer.user.name %></td>
+
+          <td><%= link_to offer.title, offer_path(offer) %></td>
+          <td style="padding: 20px"><%= offer.city %></td>
+
           <td><%= offer.created_at.strftime("%H:%M %b %d") %></td>
+
+          <td>
+                     </td>
         </tr>
-
-        </tbody>
     <% end %>
-
-
-
-    </table>
-
+    </tbody>
+  </table>
   <%= will_paginate @offers, renderer: BootstrapPagination::Rails %>
 
-
   <% if user_signed_in? %>
-      <%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get do %>
+      <%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get  do %>
           New Offer <i class="glyphicon glyphicon-plus"></i>
       <% end %>
 
@@ -83,19 +78,4 @@
           New Offer <i class="glyphicon glyphicon-plus"></i>
       <% end %>
   <% end %>
-
-
-
-
-
-
-  <div id="comments">
-  </div>
-
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
-
-
-
 
