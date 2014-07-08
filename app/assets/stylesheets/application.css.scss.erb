@@ -16,13 +16,15 @@
  *= require social-share-button
  */
 
-#home_background {
-    background-image: url("gofavorit_home_background.png");
-        background-repeat:no-repeat;
-        /* custom background-position */
-        background-position:50% 50%;
-        /* ie8- graceful degradation */
-        background-position:50% 50%9 !important;
+#background_body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    background: #333 url('gofav_fireworks.jpg') no-repeat fixed center center;
+    font-family: 'Open Sans', Arial, Helvetica, Sans-Serif;
+    padding-top: 100px;
 }
 
 .logo {
@@ -166,12 +168,7 @@
   padding: 20px;
   height: 30px;
 }
-#firstbar
-{
-  min-width:960px;
-  height:250px;
-  background:url("background_favourit.jpg");
-}
+
 
 #headerbar {
 
