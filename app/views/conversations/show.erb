@@ -2,7 +2,7 @@
 <p><strong> Replying to: </strong> <%= conversation.subject %>  </p>
 
 
-<table class="table table-striped" style="table-layout: fixed; width: 100%">
+<table class="table-responsive table-striped" style="table-layout: fixed; width: 100%">
   <tbody>
 
 
@@ -11,27 +11,24 @@
       <% conversation.mark_as_read(current_user) %>
 
       <tr>
-
+<div style="vertical-align: top">
         <% if m.sender != current_user %>
-            <div style="display: inline-block">
               <td>
 
               <div style="margin-left: 5px" class="round-image-50">
                 <%= image_tag(m.sender.logo.url(:small) ) %>
               </div>
-              <%= link_to m.sender.email, m.sender %></td>
-            </div>
+              <%= link_to m.sender.name, m.sender %></td>
       <% else %>
-            <div style="display: inline-block;">
             <td>
                 <div style="margin-left: 5px" class="round-image-50">
                   <%= image_tag(m.sender.logo.url(:small) ) %>
                 </div>
-                <div id="cell" style="position: absolute; display: inline-block; vertical-align: bottom">Me</div></td>
-            </div>
-        <% end %>
+              <%= "Me" %></td>
 
-        <td style="word-wrap: break-word"> <p><%= m.body %> </p></td>
+        <% end %>
+</div>
+        <td style="word-wrap: break-word; width: 70%"> <p><%= m.body %> </p></td>
 
 
 
@@ -44,11 +41,6 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
             conversations_path, :class => 'btn'  %>
 
-<!--failed ajax attempt. can't even render partials from here. must figure that out first.-->
-
-
-<%= link_to "Reply AJAX", {:controller => "messages", :action => "reply", :id => conversation.id, :format => :js},
-            :remote => true, :id => 'new_reply_link', :class => "btn btn-danger" %>
 
 <td><%= link_to "Reply", {:controller => "messages", :action => "reply", :id => conversation.id}, :title => "Reply", :class => "btn btn-danger"  %></td>
 
@@ -56,4 +48,3 @@
 <div id="replypartial">
 </div>
 
-1

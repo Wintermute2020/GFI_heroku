@@ -5,6 +5,7 @@ class Request < ActiveRecord::Base
 	validates_presence_of :gallery
 	has_many :pictures, through: :gallery
 
+	validates :title, length: { maximum: 150 }
 
 	# validates_attachment_presence :photo
 	# validates_attachment_size :photo, :less_than => 5.megabytes

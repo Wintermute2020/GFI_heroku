@@ -8,7 +8,7 @@ class Offer < ActiveRecord::Base
 	# validates :username, exclusion: { in: %w(admin superuser) }
 	# validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 	# validates :age, inclusion: { in: 0..9 }
-	validates :title, length: { minimum: 30 }
+	validates :title, length: { maximum: 100 }
 	validates :description, length: { minimum: 200 }
 
 

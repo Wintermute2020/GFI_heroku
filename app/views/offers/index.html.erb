@@ -31,12 +31,12 @@
                                {class: "form-control", :style => "width:191px;", :prompt => Location}) %></div>
               </div>
 
-
-              </div>
           <% end %>
 
   <% end %>
 
+
+</div>
 
 
 
@@ -44,24 +44,24 @@
   <table class=" table-striped table-responsive">
 
     <tbody>
-    <!--paginate @offers -->
 
     <% @offers.each do |offer| %>
 
         <tr>
-          <td>
+          <td style="padding-right: 30px">
             <div style="margin-left: 5px" class="round-image-50">
               <%= image_tag(offer.user.logo.url(:small)) %>
             </div>
-            <%= link_to offer.user.name %></td>
+            <br>
+            <%= link_to offer.user.name, :style => "padding-right: 40px" %></td>
 
           <td><%= link_to offer.title, offer_path(offer) %></td>
           <td style="padding: 20px"><%= offer.city %></td>
 
-          <td><%= offer.created_at.strftime("%H:%M %b %d") %></td>
+          <td style="padding: 20px"><%= offer.created_at.strftime("%H:%M %b %d") %></td>
 
           <td>
-                     </td>
+          </td>
         </tr>
     <% end %>
     </tbody>
@@ -69,7 +69,7 @@
   <%= will_paginate @offers, renderer: BootstrapPagination::Rails %>
 
   <% if user_signed_in? %>
-      <%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get  do %>
+      <%= button_to new_offer_path, class: "btn btn-large btn-inverse", :method => :get do %>
           New Offer <i class="glyphicon glyphicon-plus"></i>
       <% end %>
 
