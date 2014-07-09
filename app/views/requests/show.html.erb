@@ -44,7 +44,7 @@
 </div>
 <div class="form-actions" id="reply">
   <% if @request.user != current_user %>
-      <% if user_signed_in %>
+      <% if user_signed_in? %>
           <%= link_to "Reply",
                       new_message_path(:request => @request.id), :class => 'btn' %>
       <% end %>
