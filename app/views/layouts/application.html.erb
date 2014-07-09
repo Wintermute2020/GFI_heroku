@@ -26,7 +26,6 @@
       <div class="pull-left" style="max-width:140px; margin-top: 5px; margin-left: -10px;">
         <%= link_to(image_tag("gofavorit-green.png"), root_path) %>
       </div>
-
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -65,23 +64,19 @@
                   </li>
               <% end %>
               <% @user = current_user %>
+              <li>
               <li><%= link_to user_path(@user.id), :method => :get do %>
                     <i class="glyphicon glyphicon-home"></i> Profile
                 <% end %>
               </li>
         <% end %>
-
+        <li><%= link_to help_pages_path do %>
+              <i class="glyphicon glyphicon-question-sign"></i> Help
+          <% end %>
+        </li>
         <% if user_signed_in? %>
-            <li><%= link_to help_pages_path do %>
-                  <i class="glyphicon glyphicon-question-sign"></i> Help
-              <% end %>
-            </li>
             <li class="active"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-            <li><%= link_to help_pages_path do %>
-                  <i class="glyphicon glyphicon-home"></i> Help
-              <% end %>
-            </li>
             <li class="active"><%= link_to "Sign In", new_user_session_path %></li>
         <% end %>      </ul>
 
@@ -91,7 +86,6 @@
 
           <div style="margin-left: 5px" class="round-image-50">
             <%= image_tag(current_user.logo.url(:small)) %>
-
           </div>
           <%= current_user.try(:name) %>
 
@@ -100,15 +94,15 @@
 
       <div class="navbar-form navbar-right"><%= form_tag(offers_path, :method => :get) do %>
             <%= text_field_tag :search, nil,
-                               {:id => "search-query-2", :placeholder => "Search offers..."} %>
+                               {:id => "search-query-2", :placeholder => "Search offers...", } %>
             <%= hidden_field_tag :use_keywords, "true" %>
         <% end %>
       </div>
     </div>
   </div>
-  <div id="headerbar2">
+  <!--<div id="headerbar2">-->
 
-  </div>
+  <!--</div>-->
 
 </nav>
 

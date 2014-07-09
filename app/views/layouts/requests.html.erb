@@ -27,14 +27,14 @@
       <div class="pull-left" style="max-width:140px; margin-top: 5px; margin-left: -10px;">
         <%= link_to(image_tag("gofavorit-green.png"), root_path) %>
       </div>
-
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
 
 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-gift"></i> Favors<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-gift"></i>
+            Favors<b class="caret"></b></a>
           <ul class="btn-group select select-block mbl">
 
             <li><%= link_to "View Offers", offers_path %></li>
@@ -54,7 +54,7 @@
 
         <% if user_signed_in? %>
 
-            <li><%= link_to conversations_path, :method => :get  do %>
+            <li><%= link_to conversations_path, :method => :get do %>
                   <i class="glyphicon glyphicon-envelope"></i> Inbox
               <% end %>
 
@@ -65,13 +65,16 @@
                   </li>
               <% end %>
               <% @user = current_user %>
-              <li><li><%= link_to user_path(@user.id), :method => :get  do %>
-                  <i class="glyphicon glyphicon-home"></i> Profile
-              <% end %>
-            </li>
+              <li>
+              <li><%= link_to user_path(@user.id), :method => :get do %>
+                    <i class="glyphicon glyphicon-home"></i> Profile
+                <% end %>
+              </li>
         <% end %>
-        <li><a href="#">Help</a></li>
-
+        <li><%= link_to help_pages_path do %>
+              <i class="glyphicon glyphicon-question-sign"></i> Help
+          <% end %>
+        </li>
         <% if user_signed_in? %>
             <li class="active"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
@@ -91,16 +94,16 @@
       <% end %>
 
       <div class="navbar-form navbar-right"><%= form_tag(offers_path, :method => :get) do %>
-          <%= text_field_tag :search, nil,
-                             {:id => "search-query-2", :placeholder => "Search offers...", } %>
-          <%= hidden_field_tag :use_keywords, "true" %>
-      <% end %>
+            <%= text_field_tag :search, nil,
+                               {:id => "search-query-2", :placeholder => "Search offers...", } %>
+            <%= hidden_field_tag :use_keywords, "true" %>
+        <% end %>
       </div>
     </div>
   </div>
-  <div id="headerbar2">
+  <!--<div id="headerbar2">-->
 
-  </div>
+  <!--</div>-->
 
 </nav>
 
