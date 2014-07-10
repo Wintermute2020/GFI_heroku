@@ -1,5 +1,20 @@
 class Request < ActiveRecord::Base
 
+
+	# validates :age, numericality: true
+	# validates :username, presence: true
+	# validates :username, uniqueness: true
+	# validates :terms, acceptance: true
+	# validates :password, confirmation: true
+	# validates :username, exclusion: { in: %w(admin superuser) }
+	# validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+	# validates :age, inclusion: { in: 0..9 }
+	validates :title, length: { maximum: 100 }
+	validates :description, length: { minimum: 100 }
+	validates :give, length: { maximum: 500 }
+	validates :give, length: { maximum: 500 }
+
+
 	belongs_to :user
 	has_one :gallery
 	validates_presence_of :gallery

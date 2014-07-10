@@ -9,7 +9,11 @@ class Offer < ActiveRecord::Base
 	# validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 	# validates :age, inclusion: { in: 0..9 }
 	validates :title, length: { maximum: 100 }
-	validates :description, length: { minimum: 200 }
+	validates :description, length: { minimum: 100 }
+	validates :give, length: { maximum: 500 }
+	validates :give, length: { maximum: 500 }
+
+
 
 
 	acts_as_gmappable :process_geocoding => false

@@ -6,12 +6,15 @@
 
     <p><%= @user.email if @user.email %></p>
 
-    <p><%= @user.email if @user.email %></p>
-    Show address on map?
 
     <br>
-    <%= button_to edit_user_registration_path, class: "btn btn-info", :method => :get do %>
-        Edit Account <i class="glyphicon glyphicon-pencil"></i>
+
+
+
+    <% if @user == current_user %>
+        <%= button_to edit_user_registration_path, class: "btn btn-info", :method => :get do %>
+            Edit Account <i class="glyphicon glyphicon-pencil"></i>
+      <% end %>
     <% end %>
     <br>
 
