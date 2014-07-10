@@ -23,11 +23,7 @@ gem 'dynamic_form'
 gem 'social-share-button', '~> 0.1.6'
 gem 'shareable'
 gem 'contact_us', '~> 0.5.1'
-gem 'mail_form'
-gem 'guard-rails', group: :development
-gem 'guard-livereload', group: :development
-gem 'rack-livereload', group: :development
-gem 'guard-bundler', group: :development
+
 
 #from untitled16
 gem 'less-rails'

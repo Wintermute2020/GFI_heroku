@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   root :to => "visitors#index"
 
+  match '/contacts',     to: 'contacts#new',             via: 'get'
+  resources "contacts", only: [:new, :create]
+
   devise_for :users
   resources :users do
 	  resources :profiles
@@ -14,6 +17,7 @@ Rails.application.routes.draw do
   resource :pages do
 	  member do
 		  get :help
+		  get :contact_us
 	  end
   end
 

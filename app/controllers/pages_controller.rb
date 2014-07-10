@@ -13,7 +13,11 @@ class PagesController < ApplicationController
 
   def help
 	  render 'help.erb'
-  end
+	  @contact = Contact.new
+		  render :new
+	end
+
+
 
 
 end
