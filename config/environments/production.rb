@@ -77,7 +77,7 @@ Rails.application.configure do
     domain: 'http://stark-stream-4511.herokuapp.com/',
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "blur606@gmail.com",
+    user_name: "gofavorit@gmail.com",
     password: "element9"
   }
   # ActionMailer Config

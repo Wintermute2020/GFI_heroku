@@ -32,6 +32,9 @@
 
 
 <div class="form-actions" id="reply">
+
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              requests_path, :class => 'btn btn-info' %>
   <% if @request != current_user %>
       <% if user_signed_in? %>
           <%= link_to "Reply",
@@ -42,8 +45,6 @@
       <%= link_to "Reply",
                   new_user_session_path, :class => 'btn' %>
   <% end %>
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              requests_path, :class => 'btn btn-info' %>
   <% if @request.user == current_user %>
       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                   edit_request_path(@request), :class => 'btn btn-inverse' %>

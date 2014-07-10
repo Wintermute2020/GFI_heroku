@@ -1,7 +1,7 @@
 <div class="row">
 
 
-  <div class="col-xs-5 well" style="padding: 20px">
+  <div class="col-xs-5" style="padding: 20px">
     <h3><%= @user.name %></h3>
 
     <p><%= @user.email if @user.email %></p>
@@ -21,13 +21,14 @@
   </div>
 
 
-<div class="col-xs-2 pull-right well">
+<div class="col-xs-3 thumbnail">
+  <div class="text-center">Change your profile pic</div>
   <% if @user == current_user %>
       <%= render partial: 'avatars/form',
                  object: @user,
-                 as: :avatarable, :style => 'height: 300px' %>
+                 as: :avatarable %>
   <% else %>
-      <%= image_tag(@user.logo.url) %>
+      <%= image_tag(@user.logo.url(:medium)) %>
   <% end %>
 
 
@@ -58,7 +59,7 @@
   <br><br>
 
   <div class="contain">
-    <h5>My Offers - <%= @offers.count %></h5>
+    <h5>My Offers <span class="badge badge-primary" style="font-size: 1em"><%= @offers.count %></span></h5>
 
     <!--<h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>-->
 
@@ -103,7 +104,7 @@
 
 
 <div class="contain">
-  <h5>My Requests - <%= @requests.count %></h5>
+  <h5>My Requests <span class="badge badge-primary" style="font-size: 1em"><%= @requests.count %></span></h5>
   <!--<h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>-->
 
   <table class="table table-striped">

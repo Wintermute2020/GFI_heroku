@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
 	acts_as_messageable
-	acts_as_avatarable :default_url => "missing.png"
+	acts_as_avatarable :default_url => "profile_pic.png"
 
 
 
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 			              :default_url => ":rails_root/public/images/missing.png",
 	                  :path => ":rails_root/public/images/:id/:filename",
 	                  :url  => "/images/:id/:filename",
-	                  :styles => { :large => "2000x2000>" }
+	                  :styles => { :small => "160x160!", :medium => "320x320px"}
 
 
 	do_not_validate_attachment_file_type :avatar

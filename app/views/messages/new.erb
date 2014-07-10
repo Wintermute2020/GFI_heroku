@@ -9,8 +9,9 @@ Reply to post:
     </div>
     <%= hidden_field_tag(:user, "#{@user.id}") %>
     <br>
-    <%= submit_tag 'Send Message', class: "btn btn-primary" %>
+    <%= link_to "Back", :back, :class => "btn" %>
 
+    <%= submit_tag 'Send Message', class: "btn btn-primary" %>
 
 
 <% end %>

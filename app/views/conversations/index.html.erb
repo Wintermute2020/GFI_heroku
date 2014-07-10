@@ -15,7 +15,7 @@
       <%= image_tag(conversation.originator.logo.url(:small)) %>
     </div>
     <br>
-    <%= link_to conversation.originator.name, :style => "padding-right: 40px" %></td>
+    <%= link_to conversation.originator.name, user_path(conversation.originator), :style => "padding-right: 40px" %></td>
 
   <td><% if conversation.is_unread?(current_user) %>
         <div class="col-lg-12 input-group">

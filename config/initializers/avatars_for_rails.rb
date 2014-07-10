@@ -6,8 +6,8 @@ AvatarsForRails.setup do |config|
   # config.controller_avatarable = :current_user
 
   # The default styles that will be generated
-  # config.avatarable_styles = { small:  '50x50',
-  #                              medium: '120x120' }
+   config.avatarable_styles = { small:  '200x200',
+                                medium: '500x500' }
 
   # The tmp path inside public/
   # config.public_tmp_path = File.join('system', 'tmp')

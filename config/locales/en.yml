@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+  mailboxer:
+    message_mailer:
+      subject_new: 'New Gofavorit message: %{subject}'
+      subject_reply: 'New Gofavorit reply: %{subject}'
